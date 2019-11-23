@@ -1,0 +1,179 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Make a plea
+{% endblock %}
+
+{% block content %}
+
+<script>
+    window.onload = function() {
+        
+        /************ */
+        /************ */
+        /* PLEA CHECK */
+        var offence_1_plea = document.getElementById('offence-1-plea').innerHTML;
+        var offence_2_plea = document.getElementById('offence-2-plea').innerHTML;
+        var offence_3_plea = document.getElementById('offence-3-plea').innerHTML;
+        
+        if (offence_1_plea != "Guilty") {
+            document.getElementById('offence-1-group').style.display = "none";
+        }
+        if (offence_2_plea != "Guilty") {
+            document.getElementById('offence-2-group').style.display = "none";
+        }
+        if (offence_3_plea != "Guilty") {
+            document.getElementById('offence-3-group').style.display = "none";
+        }
+        
+    }
+</script>
+
+{% include "includes/phase-banner.html" %}
+{% include "includes/breadcrumb_back.html" %}
+{% include "includes/data-check.html" %}
+
+<div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-xl">
+        Guilty plea
+    </h1>
+
+        <div class="govuk-inset-text">
+            <p class="govuk-body margin-bottom-5">You have the right to attend an open court hearing but don’t have to. The magistrate can also consider your case without you and send you their decision by post.</p>
+            <p class="govuk-body margin-bottom-5">Magistrates follow the same guidelines either way.</p>
+        </div>
+        
+        <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+        
+        <form action="" method="post">
+            <div class="govuk-form-group">
+        
+            <fieldset class="govuk-fieldset" aria-describedby="how-contacted-conditional-hint">
+
+                <!-- OFFENCE 1 -->
+                <div id="offence-1-group">
+                    
+                    <h2 id="offence-1-main-group" class="govuk-heading-m">
+                        Offence 1 of 3
+                    </h2>
+                    <details class="govuk-details">
+                        <summary class="govuk-details__summary">
+                            <span class="govuk-details__summary-text govuk-!-font-weight-bold">
+                                {{data['offence-1-title']}}
+                            </span>
+                        </summary>
+                        <div class="govuk-details__text">
+                                <p class="govuk-body">{{data['offence-1-wording-1']}}</p>
+                                <p class="govuk-body">{{data['offence-1-wording-2']}}</p>
+                                <p class="govuk-body govuk-!-font-weight-bold">{{data['offence-1-wording-3']}}</p>
+                        </div>
+                    </details>
+
+                    <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+
+                </div>
+                
+                <!-- OFFENCE 2 -->
+                <div id="offence-2-group">
+                
+                    <h2 id="offence-2-main-group" class="govuk-heading-m">
+                        Offence 2 of 3
+                    </h2>
+                    <details class="govuk-details">
+                        <summary class="govuk-details__summary">
+                            <span class="govuk-details__summary-text govuk-!-font-weight-bold">
+                                {{data['offence-2-title']}}
+                            </span>
+                        </summary>
+                        <div class="govuk-details__text">
+                                <p class="govuk-body">{{data['offence-2-wording-1']}}</p>
+                                <p class="govuk-body">{{data['offence-2-wording-2']}}</p>
+                                <p class="govuk-body govuk-!-font-weight-bold">{{data['offence-2-wording-3']}}</p>
+                        </div>
+                    </details>
+
+                    <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+
+                </div>
+                
+                <!-- OFFENCE 3 -->
+                <div id="offence-3-group">
+                
+                    <h2 id="offence-3-main-group" class="govuk-heading-m">
+                        Offence 3 of 3
+                    </h2>
+                    <details class="govuk-details">
+                        <summary class="govuk-details__summary">
+                            <span class="govuk-details__summary-text govuk-!-font-weight-bold">
+                                {{data['offence-3-title']}}
+                            </span>
+                        </summary>
+                        <div class="govuk-details__text">
+                                <p class="govuk-body">{{data['offence-3-wording-1']}}</p>
+                                <p class="govuk-body">{{data['offence-3-wording-2']}}</p>
+                                <p class="govuk-body">{{data['offence-3-wording-4']}}</p>
+                                <p class="govuk-body govuk-!-font-weight-bold">{{data['offence-3-wording-4']}}</p>
+                        </div>
+                    </details>
+
+                    <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+
+                </div>
+                
+                <h3 class="govuk-heading-s">
+                    Would you like to come to court?
+                </h3>
+
+                <div class="govuk-radios govuk-radios--conditional" data-module="radios">
+                    <div class="govuk-radios__item">
+                        <input class="govuk-radios__input" id="guilty-come-to-court-1" name="guilty-come-to-court" type="radio" value="Yes" data-aria-controls="conditional-guilty-come-to-court-1" {{ checked('guilty-come-to-court','Yes') }}>
+                        <label class="govuk-label govuk-radios__label" for="guilty-come-to-court-1">
+                            Yes, I want to come to court
+                        </label>
+                    </div>
+                    <div class="govuk-radios__item">
+                        <input class="govuk-radios__input" id="guilty-come-to-court-2" name="guilty-come-to-court" type="radio" value="No" data-aria-controls="conditional-guilty-come-to-court-2" {{ checked('guilty-come-to-court','No') }}>
+                        <label class="govuk-label govuk-radios__label" for="guilty-come-to-court-2">
+                            No, I do not want to come to court
+                        </label>
+                    </div>
+                    <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-guilty-come-to-court-2">
+                        <div class="govuk-form-group">
+                            <p class="govuk-body">
+                                You might still have to come to court. We’ll write to you if you need to.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+            </fieldset>
+
+            <button type="submit" class="govuk-button margin-top-30 margin-bottom-15">
+                Continue
+            </button>
+            <p class="govuk-body">
+                <a class="govuk-body" href="javascript:history.back()">Back</a>
+            </p>
+
+        </div>
+    </form>
+        
+</div>
+
+<div class="govuk-grid-column-one-third">
+
+    {% include "includes/help-and-advice-header.html" %}
+    {% include "includes/help-and-advice-1.html" %}
+    {% include "includes/help-and-advice-2.html" %}
+    {% include "includes/help-and-advice-3.html" %}
+    {% include "includes/help-and-advice-4.html" %}
+
+</div>
+
+</div>
+
+{% endblock %}

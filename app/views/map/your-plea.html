@@ -1,0 +1,257 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Make a plea
+{% endblock %}
+
+{% block content %}
+
+{% include "includes/phase-banner.html" %}
+{% include "includes/breadcrumb_back.html" %}
+{% include "includes/data-check.html" %}
+
+<div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-xl">
+        Your plea
+    </h1>
+
+        <div class="govuk-inset-text">
+            <p class="govuk-body margin-bottom-5">This is your chance to respond. Please note:</p>
+            <ul class="govuk-list govuk-list--bullet">
+                <li>you're being charged with a criminal offence and you may wish to take legal advice before making your plea</li>
+                <li>all evidence is in the notice sent to you</li>
+                <li>if you plead guilty, we will reduce your fine by up to 33%</li>
+                <li>If you are convicted after trial your costs may be higher than if you had pleaded guilty</li>
+            </ul>
+        </div>
+        
+        <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+        
+        <h1 class="govuk-heading-l">
+            What you've been charged with
+        </h1>
+        
+        <form action="" method="post">
+            <div class="govuk-form-group">
+        
+                <!-- --------- -->
+                <!-- --------- -->
+                <!-- --------- -->
+                <!-- --------- -->
+                <!-- --------- -->
+                <!-- --------- -->
+                <!-- --------- -->
+                <!-- OFFENCE 1 -->
+                <fieldset id="offence-1-plea-group" class="govuk-fieldset" aria-describedby="how-contacted-conditional-hint">
+
+                    <h2 class="govuk-heading-m">
+                        Offence 1 of 3
+                    </h2>
+
+                    <details class="govuk-details" open>
+                        <summary class="govuk-details__summary">
+                            <span class="govuk-details__summary-text">
+                                {{data['offence-1-title']}}
+                            </span>
+                        </summary>
+                        <div class="govuk-details__text">
+                            <p class="govuk-body">{{data['offence-1-wording-1']}}</p>
+                            <p class="govuk-body">{{data['offence-1-wording-2']}}</p>
+                            <p class="govuk-body govuk-!-font-weight-bold">{{data['offence-1-wording-3']}}</p>
+                        </div>
+                    </details>
+
+                    <h3 class="govuk-heading-s">
+                        How do you plead?
+                    </h3>
+
+                    <div class="govuk-radios govuk-radios--conditional" data-module="radios">
+                        <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="offence-1-conditional-1" name="offence-1-plea" type="radio" value="Guilty" data-aria-controls="conditional-offence-1-plea-conditional-1" {{ checked('offence-1-plea','Guilty') }}>
+                            <label class="govuk-label govuk-radios__label" for="offence-1-plea-conditional-1">
+                                Guilty
+                            </label>
+                        </div>
+                        <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-offence-1-plea-conditional-1">
+                            <div class="govuk-form-group">
+                                <p class="govuk-body">
+                                    You agree you committed the offence. You will have the opportunity to give additional information to the court.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="offence-1-plea-conditional-2" name="offence-1-plea" type="radio" value="Not guilty" data-aria-controls="conditional-offence-1-plea-conditional-2" {{ checked('offence-1-plea','Not guilty') }}>
+                            <label class="govuk-label govuk-radios__label" for="offence-1-plea-conditional-2">
+                                Not guilty
+                            </label>
+                        </div>
+                        <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-offence-1-plea-conditional-2">
+                            <div class="govuk-form-group">
+                                <p class="govuk-body">
+                                    You do not agree you committed the offence so you'll need to attend court if you want to present your evidence.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                </fieldset>
+
+                <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+
+                <!-- --------- -->
+                <!-- --------- -->
+                <!-- --------- -->
+                <!-- --------- -->
+                <!-- --------- -->
+                <!-- --------- -->
+                <!-- --------- -->
+                <!-- OFFENCE 2 -->
+                <fieldset id="offence-2-plea-group" class="govuk-fieldset" aria-describedby="how-contacted-conditional-hint">
+
+                    <h2 class="govuk-heading-m">
+                        Offence 2 of 3
+                    </h2>
+
+                    <details class="govuk-details" open>
+                        <summary class="govuk-details__summary">
+                            <span class="govuk-details__summary-text">
+                                {{data['offence-2-title']}}
+                            </span>
+                        </summary>
+                        <div class="govuk-details__text">
+                            <p class="govuk-body">{{data['offence-2-wording-1']}}</p>
+                            <p class="govuk-body">{{data['offence-2-wording-2']}}</p>
+                            <p class="govuk-body govuk-!-font-weight-bold">{{data['offence-2-wording-3']}}</p>
+                        </div>
+                    </details>
+
+                    <h3 class="govuk-heading-s">
+                        How do you plead?
+                    </h3>
+
+                    <div class="govuk-radios govuk-radios--conditional" data-module="radios">
+                        <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="offence-2-plea-conditional-1" name="offence-2-plea" type="radio" value="Guilty" data-aria-controls="conditional-offence-2-plea-conditional-1" {{ checked('offence-2-plea','Guilty') }}>
+                            <label class="govuk-label govuk-radios__label" for="offence-2-plea-conditional-1">
+                                Guilty
+                            </label>
+                        </div>
+                        <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-offence-2-plea-conditional-1">
+                            <div class="govuk-form-group">
+                                <p class="govuk-body">
+                                    You agree you committed the offence. You will have the opportunity to give additional information to the court.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="offence-2-plea-conditional-2" name="offence-2-plea" type="radio" value="Not guilty" data-aria-controls="conditional-offence-2-plea-conditional-2" {{ checked('offence-2-plea','Not guilty') }}>
+                            <label class="govuk-label govuk-radios__label" for="offence-2-plea-conditional-2">
+                                Not guilty
+                            </label>
+                        </div>
+                        <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-offence-2-plea-conditional-2">
+                            <div class="govuk-form-group">
+                                <p class="govuk-body">
+                                    You do not agree you committed the offence so you'll need to attend court if you want to present your evidence.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                </fieldset>
+
+                <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+
+                <!-- --------- -->
+                <!-- --------- -->
+                <!-- --------- -->
+                <!-- --------- -->
+                <!-- --------- -->
+                <!-- --------- -->
+                <!-- --------- -->
+                <!-- OFFENCE 3 -->
+                <fieldset id="offence-3-plea-group" class="govuk-fieldset" aria-describedby="how-contacted-conditional-hint">
+
+                    <h2 class="govuk-heading-m">
+                        Offence 3 of 3
+                    </h2>
+
+                    <details class="govuk-details" open>
+                        <summary class="govuk-details__summary">
+                            <span class="govuk-details__summary-text">
+                                {{data['offence-3-title']}}
+                            </span>
+                        </summary>
+                        <div class="govuk-details__text">
+                            <p class="govuk-body">{{data['offence-3-wording-1']}}</p>
+                            <p class="govuk-body">{{data['offence-3-wording-2']}}</p>
+                            <p class="govuk-body">{{data['offence-3-wording-3']}}</p>
+                            <p class="govuk-body govuk-!-font-weight-bold">{{data['offence-3-wording-4']}}</p>
+                        </div>
+                    </details>
+
+                    <h3 class="govuk-heading-s">
+                        How do you plead?
+                    </h3>
+
+                    <div class="govuk-radios govuk-radios--conditional" data-module="radios">
+                        <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="offence-3-plea-conditional-1" name="offence-3-plea" type="radio" value="Guilty" data-aria-controls="conditional-offence-3-plea-conditional-1" {{ checked('offence-3-plea','Guilty') }}>
+                            <label class="govuk-label govuk-radios__label" for="offence-3-plea-conditional-1">
+                                Guilty
+                            </label>
+                        </div>
+                        <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-offence-3-plea-conditional-1">
+                            <div class="govuk-form-group">
+                                <p class="govuk-body">
+                                    You agree you committed the offence. You will have the opportunity to give additional information to the court.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="offence-3-plea-conditional-2" name="offence-3-plea" type="radio" value="Not guilty" data-aria-controls="conditional-offence-3-plea-conditional-2" {{ checked('offence-3-plea','Not guilty') }}>
+                            <label class="govuk-label govuk-radios__label" for="offence-3-plea-conditional-2">
+                                Not guilty
+                            </label>
+                        </div>
+                        <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-offence-3-plea-conditional-2">
+                            <div class="govuk-form-group">
+                                <p class="govuk-body">
+                                    You do not agree you committed the offence so you'll need to attend court if you want to present your evidence.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                </fieldset>
+
+                <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+
+                <button type="submit" class="govuk-button margin-bottom-15">
+                    Continue
+                </button>
+                <p class="govuk-body">
+                    <a class="govuk-body" href="javascript:history.back()">Back</a>
+                </p>
+
+            </div>
+        </form>
+        
+    </div>
+
+    <div class="govuk-grid-column-one-third">
+
+        {% include "includes/help-and-advice-header.html" %}
+        {% include "includes/help-and-advice-1.html" %}
+        {% include "includes/help-and-advice-2.html" %}
+        {% include "includes/help-and-advice-3.html" %}
+        {% include "includes/help-and-advice-4.html" %}
+
+    </div>
+
+</div>
+
+{% endblock %}

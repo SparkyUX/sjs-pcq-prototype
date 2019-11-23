@@ -1,0 +1,284 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Make a plea
+{% endblock %}
+
+{% block content %}
+
+<script>
+    window.onload = function() {
+        
+        /************ */
+        /************ */
+        /* PLEA CHECK */
+        var offence_1_plea = document.getElementById('offence-1-plea').innerHTML;
+        var offence_2_plea = document.getElementById('offence-2-plea').innerHTML;
+        var offence_3_plea = document.getElementById('offence-3-plea').innerHTML;
+        
+        if (offence_1_plea != "Guilty") {
+            document.getElementById('offence-1-main-group').style.display = "none";
+        }
+        if (offence_2_plea != "Guilty") {
+            document.getElementById('offence-2-main-group').style.display = "none";
+        }
+        if (offence_3_plea != "Guilty") {
+            document.getElementById('offence-3-main-group').style.display = "none";
+        }
+        
+
+        
+        
+        
+        
+        
+        
+        /* ************************** */
+        /* ************************** */
+        /* GUILTY COME TO COURT CHECK */
+        var guilty_come_to_court = document.getElementById('guilty-come-to-court').innerHTML;
+        
+        if (guilty_come_to_court == "No") {
+            document.getElementById('evidence-main-group').style.display = "none";
+        }
+
+        
+        
+
+        
+        
+        
+        
+        
+    }
+</script>
+
+{% include "includes/phase-banner.html" %}
+{% include "includes/breadcrumb_back.html" %}
+{% include "includes/data-check.html" %}
+
+<div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-xl">
+        Guilty plea mitigation
+    </h1>
+
+        <p class="govuk-heading-s">Is there anything you would like to tell the court? (optional)</p>
+        <p class="govuk-body">This is also known as mitigation. You can explain why you committed the offences or tell the court about relevant circumstances.</p>
+        <p class="govuk-body">They’ll take what you say into account when deciding on your case.</p>
+        
+        <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+        
+        <form action="" method="post">
+            <div class="govuk-form-group">
+        
+            <!-- OFFENCE 1 -->
+            <fieldset id="offence-1-main-group" class="govuk-fieldset" aria-describedby="offence-1-mitigation-hint">
+
+                <h2 class="govuk-heading-m">
+                    Offence 1 of 3
+                </h2>
+
+                <details class="govuk-details margin-bottom-15">
+                    <summary class="govuk-details__summary">
+                        <span class="govuk-details__summary-text govuk-!-font-weight-bold">
+                            {{data['offence-1-title']}}
+                        </span>
+                    </summary>
+                    <div class="govuk-details__text">
+                            <p class="govuk-body">{{data['offence-1-wording-1']}}</p>
+                            <p class="govuk-body">{{data['offence-1-wording-2']}}</p>
+                            <p class="govuk-body govuk-!-font-weight-bold">{{data['offence-1-wording-3']}}</p>
+                    </div>
+                </details>
+
+                <div class="govuk-character-count margin-bottom-0" data-module="character-count" data-maxlength="1000">
+                    <div class="govuk-form-group">
+                        <textarea class="govuk-textarea js-character-count " id="offence-1-mitigation" name="offence-1-mitigation" rows="5" aria-describedby="offence-1-mitigation">{{ data['offence-1-mitigation'] }}</textarea>
+                    </div>
+
+                    <span id="offence-1-mitigation-info" class="govuk-hint govuk-character-count__message" aria-live="polite">
+                        You can enter up to 200 characters
+                    </span>
+                </div>
+                
+                <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+
+            </fieldset>
+
+            <!-- OFFENCE 2 -->
+            <fieldset id="offence-2-main-group" class="govuk-fieldset" aria-describedby="offence-2-mitigation-hint">
+
+                <h2 class="govuk-heading-m">
+                    Offence 2 of 3
+                </h2>
+
+                <details class="govuk-details margin-bottom-15">
+                    <summary class="govuk-details__summary">
+                        <span class="govuk-details__summary-text govuk-!-font-weight-bold">
+                            {{data['offence-2-title']}}
+                        </span>
+                    </summary>
+                    <div class="govuk-details__text">
+                            <p class="govuk-body">{{data['offence-2-wording-1']}}</p>
+                            <p class="govuk-body">{{data['offence-2-wording-2']}}</p>
+                            <p class="govuk-body govuk-!-font-weight-bold">{{data['offence-2-wording-3']}}</p>
+                    </div>
+                </details>
+
+                <div class="govuk-character-count margin-bottom-0" data-module="character-count" data-maxlength="1000">
+                    <div class="govuk-form-group">
+                        <textarea class="govuk-textarea js-character-count " id="offence-2-mitigation" name="offence-2-mitigation" rows="5" aria-describedby="offence-2-mitigation">{{ data['offence-2-mitigation'] }}</textarea>
+                    </div>
+
+                    <span id="offence-2-mitigation-info" class="govuk-hint govuk-character-count__message" aria-live="polite">
+                        You can enter up to 200 characters
+                    </span>
+                </div>
+                
+                <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+
+            </fieldset>
+
+            <!-- OFFENCE 3 -->
+            <fieldset id="offence-3-main-group" class="govuk-fieldset" aria-describedby="offence-3-mitigation-hint">
+
+                <h2 class="govuk-heading-m">
+                    Offence 3 of 3
+                </h2>
+
+                <details class="govuk-details margin-bottom-15">
+                    <summary class="govuk-details__summary">
+                        <span class="govuk-details__summary-text govuk-!-font-weight-bold">
+                            {{data['offence-3-title']}}
+                        </span>
+                    </summary>
+                    <div class="govuk-details__text">
+                            <p class="govuk-body">{{data['offence-3-wording-1']}}</p>
+                            <p class="govuk-body">{{data['offence-3-wording-2']}}</p>
+                            <p class="govuk-body">{{data['offence-3-wording-4']}}</p>
+                            <p class="govuk-body govuk-!-font-weight-bold">{{data['offence-3-wording-4']}}</p>
+                    </div>
+                </details>
+
+                <div class="govuk-character-count margin-bottom-0" data-module="character-count" data-maxlength="1000">
+                    <div class="govuk-form-group">
+                        <textarea class="govuk-textarea js-character-count " id="offence-3-mitigation" name="offence-3-mitigation" rows="5" aria-describedby="offence-3-mitigation-hint">{{ data['offence-3-mitigation'] }}</textarea>
+                    </div>
+
+                    <span id="offence-3-mitigation-info" class="govuk-hint govuk-character-count__message" aria-live="polite">
+                        You can enter up to 200 characters
+                    </span>
+                </div>
+                
+                <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+
+            </fieldset>
+
+                
+                
+                
+                
+            <!-- EVIDENCE IN THIS NOTICE -->
+            <fieldset id="evidence-main-group" class="govuk-fieldset" aria-describedby="offence-3-mitigation-hint" style="display:none">
+
+                <h2 class="govuk-heading-m">
+                    Evidence in this notice
+                </h2>
+                
+                    <h3 class="govuk-heading-s margin-bottom-5">
+                        Do you disagree with any of the statements in the notice sent to you?
+                    </h3>
+                    <p class="govuk-hint">For example, a witness statement</p>
+
+                    <div class="govuk-radios govuk-radios--conditional margin-bottom-30" data-module="radios">
+                        <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="disagree-1" name="disagree" type="radio" value="Yes" data-aria-controls="disagree-conditional-1" {{ checked('disagree','Yes') }}>
+                            <label class="govuk-label govuk-radios__label" for="disagree-1">
+                                Yes
+                            </label>
+                        </div>
+                        <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="disagree-conditional-1">
+                            <div class="govuk-form-group">
+                                <label class="govuk-label govuk-!-font-weight-bold" for="more-detail">
+                                    Tell us what you don't agree with
+                                </label>
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                <!--
+                                <textarea class="govuk-textarea" id="disagree-detail" name="disagree-detail" rows="5" aria-describedby="disagree-detail-hint">{{data['disagree-detail']}}</textarea>
+                                -->
+                                
+                                
+                                
+                                
+                                
+                                <div class="govuk-character-count margin-bottom-0" data-module="character-count" data-maxlength="1000">
+                                    <div class="govuk-form-group">
+                                        <textarea class="govuk-textarea js-character-count " id="disagree-detail" name="disagree-detail" rows="5" aria-describedby="disagree-detail">{{data['disagree-detail']}}</textarea>
+                                    </div>
+
+                                    <span id="disagree-detail-info" class="govuk-hint govuk-character-count__message" aria-live="polite">
+                                        You can enter up to 200 characters
+                                    </span>
+                                </div>
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                            </div>
+                        </div>
+                        <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="disagree-2" name="disagree" type="radio" value="No" {{ checked('disagree','No') }}>
+                            <label class="govuk-label govuk-radios__label" for="disagree-2">
+                                No
+                            </label>
+                        </div>
+                    </div>
+                
+            </fieldset>
+                
+                
+                
+                
+                
+                
+                
+            <button type="submit" class="govuk-button margin-top-0 margin-bottom-15">
+                Continue
+            </button>
+            <p class="govuk-body">
+                <a class="govuk-body" href="javascript:history.back()">Back</a>
+            </p>
+
+        </div>
+    </form>
+        
+</div>
+
+<div class="govuk-grid-column-one-third">
+
+    {% include "includes/help-and-advice-header.html" %}
+    {% include "includes/help-and-advice-1.html" %}
+    {% include "includes/help-and-advice-2.html" %}
+    {% include "includes/help-and-advice-3.html" %}
+    {% include "includes/help-and-advice-4.html" %}
+
+</div>
+
+</div>
+
+{% endblock %}

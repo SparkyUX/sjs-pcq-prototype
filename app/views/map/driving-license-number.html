@@ -1,0 +1,101 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Make a plea
+{% endblock %}
+
+{% block content %}
+
+{% include "includes/phase-banner.html" %}
+{% include "includes/breadcrumb_back.html" %}
+{% include "includes/data-check.html" %}
+
+<div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-xl">
+        Driving license number
+    </h1>
+        
+    <form action="" method="post">
+        <div class="govuk-form-group">
+        
+            <fieldset class="govuk-fieldset" aria-describedby="how-contacted-conditional-hint">
+
+                <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
+                    <h2 class="govuk-heading-s margin-bottom-0">
+                        Do you have a UK driving licence?
+                    </h2>
+                </legend>
+
+                <div class="govuk-radios govuk-radios--conditional" data-module="radios">
+                    <div class="govuk-radios__item">
+                        <input class="govuk-radios__input" id="do-you-have-a-dl-1" name="do-you-have-a-dl" type="radio" value="Yes" data-aria-controls="conditional-do-you-have-a-dl-1" {{ checked('do-you-have-a-dl','Yes') }}>
+                        <label class="govuk-label govuk-radios__label" for="conditional-do-you-have-a-dl-1">
+                            Yes
+                        </label>
+                    </div>
+                    <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-do-you-have-a-dl-1">
+                        <div class="govuk-form-group">
+                            <label class="govuk-label govuk-!-font-weight-bold" for="dl-number">
+                                Your UK driving licence number
+                            </label>
+                            <span id="dl-number-conditional-hint" class="govuk-hint">
+                                This is a 16-digit number that can be found in section 5 of your driving licence photocard
+                            </span>
+                            <input class="govuk-input govuk-!-width-two-thirds" id="dl-number" name="dl-number" type="text" spellcheck="false" value="{{ data['dl-number'] }}">
+                        </div>
+                    </div>
+
+                    <div class="govuk-radios__item">
+                        <input class="govuk-radios__input" id="do-you-have-a-dl-2" name="do-you-have-a-dl" type="radio" value="No" data-aria-controls="conditional-do-you-have-a-dl-2" {{ checked('do-you-have-a-dl','No') }}>
+                        <label class="govuk-label govuk-radios__label" for="conditional-do-you-have-a-dl-2">
+                            No
+                        </label>
+                    </div>
+                    <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-do-you-have-a-dl-2">
+                        <div class="govuk-character-count" data-module="character-count" data-maxlength="500">
+                            <div class="govuk-form-group">
+                                <label class="govuk-label govuk-!-font-weight-bold" for="license-type">
+                                    Tell us what kind of drivers licence you hold, if you have one
+                                </label>
+                                <textarea class="govuk-textarea js-character-count " id="license-type" name="license-type" rows="5" aria-describedby="license-type-hint">{{ data['license-type'] }}</textarea>
+                            </div>
+
+                            <span id="license-type-info" class="govuk-hint govuk-character-count__message" aria-live="polite">
+                                You can enter up to 200 characters
+                            </span>
+                        </div>                    
+                    </div>
+
+                    <div class="margin-top-30">
+                        <a href="/">Find your UK Driving Licence number (opens in a new window)</a>
+                    </div>
+
+                </div>
+            </fieldset>
+
+            <button type="submit" class="govuk-button margin-top-30 margin-bottom-15">
+                Continue
+            </button>
+            <p class="govuk-body">
+                <a class="govuk-body" href="javascript:history.back()">Back</a>
+            </p>
+
+        </div>
+    </form>
+        
+</div>
+
+<div class="govuk-grid-column-one-third">
+
+    {% include "includes/help-and-advice-header.html" %}
+    {% include "includes/help-and-advice-4.html" %}
+
+</div>
+
+</div>
+
+{% endblock %}

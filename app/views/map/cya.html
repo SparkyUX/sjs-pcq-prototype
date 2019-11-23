@@ -1,0 +1,1980 @@
+
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Make a plea
+{% endblock %}
+
+{% block content %}
+
+<script>
+    
+    window.onload = function() {
+        
+        /*************** */
+        /*************** */
+        /*************** */
+        /* ADDRESS CHECK */
+        var defendantAddressLine1 = document.getElementById('defendant-address-line-1').innerHTML;
+        var defendantAddressLine2 = document.getElementById('defendant-address-line-2').innerHTML;
+        var defendantAddressLine3 = document.getElementById('defendant-address-line-3').innerHTML;
+        var defendantAddressLine4 = document.getElementById('defendant-address-line-4').innerHTML;
+        var defendantAddressLine5 = document.getElementById('defendant-address-line-5').innerHTML;
+        var defendantAddressPostcode = document.getElementById('defendant-address-postcode').innerHTML;
+        
+        if (defendantAddressLine1 == "<br>") {
+            document.getElementById('defendant-address-line-1').style.display = "none"
+        }
+        if (defendantAddressLine2 == "<br>") {
+            document.getElementById('defendant-address-line-2').style.display = "none"
+        }
+        if (defendantAddressLine3 == "<br>") {
+            document.getElementById('defendant-address-line-3').style.display = "none"
+        }
+        if (defendantAddressLine4 == "<br>") {
+            document.getElementById('defendant-address-line-4').style.display = "none"
+        }
+        if (defendantAddressLine5 == "<br>") {
+            document.getElementById('defendant-address-line-5').style.display = "none"
+        }
+
+        
+        
+        
+        
+        /* ******************** */
+        /* ******************** */
+        /* ******************** */
+        /* CONTACT NUMBER CHECK */
+        var contact_number = document.getElementById('contact-number').innerHTML;
+        if (contact_number == "") {
+            document.getElementById('contact-number').innerHTML = " &#8212;"
+        }
+
+        
+        
+        
+        
+        /********** */
+        /********** */
+        /********** */
+        /* DL CHECK */
+        var do_you_have_a_dl = document.getElementById('do-you-have-a-dl').innerHTML;
+        if (do_you_have_a_dl == "Yes") {
+            document.getElementById('cya-dl-yes').style.display = "inline";
+            document.getElementById('cya-dl-no').style.display = "none";
+        } else if (do_you_have_a_dl == "No") {
+            document.getElementById('cya-dl-yes').style.display = "none";
+            document.getElementById('cya-dl-no').style.display = "inline";
+        }
+
+        
+        
+        
+        
+        
+        /* **************** */
+        /* **************** */
+        /* **************** */
+        /* MITIGATION CHECK */
+        var offence_1_plea = document.getElementById('offence-1-plea').innerHTML;
+        var offence_2_plea = document.getElementById('offence-2-plea').innerHTML;
+        var offence_3_plea = document.getElementById('offence-3-plea').innerHTML;
+        
+        if (offence_1_plea == "Not guilty") {
+            document.getElementById('offence-1-mitigation-guilty').style.display = "none";
+            document.getElementById('offence-1-mitigation-guilty-2').style.display = "none";
+            document.getElementById('offence-1-mitigation-not-guilty').style.display = "inline";
+            document.getElementById('offence-1-mitigation-not-guilty-2').style.display = "inline";
+            document.getElementById('1-not-guilty-plea-mitigation-change').style.display = "inline";
+            document.getElementById('1-guilty-plea-mitigation-change').style.display = "none";
+            document.getElementById('offence-1-come-to-court-group').style.display = "none";
+        } else if (offence_1_plea == "Guilty") {
+            document.getElementById('offence-1-mitigation-guilty').style.display = "inline";
+            document.getElementById('offence-1-mitigation-guilty-2').style.display = "inline";
+            document.getElementById('offence-1-mitigation-not-guilty').style.display = "none";
+            document.getElementById('offence-1-mitigation-not-guilty-2').style.display = "none";
+            document.getElementById('1-not-guilty-plea-mitigation-change').style.display = "none";
+            document.getElementById('1-guilty-plea-mitigation-change').style.display = "inline";
+            document.getElementById('offence-1-come-to-court-group').style.display = "inline";
+        }
+        if (offence_2_plea == "Not guilty") {
+            document.getElementById('offence-2-mitigation-guilty').style.display = "none";
+            document.getElementById('offence-2-mitigation-guilty-2').style.display = "none";
+            document.getElementById('offence-2-mitigation-not-guilty').style.display = "inline";
+            document.getElementById('offence-2-mitigation-not-guilty-2').style.display = "inline";
+            document.getElementById('2-not-guilty-plea-mitigation-change').style.display = "inline";
+            document.getElementById('2-guilty-plea-mitigation-change').style.display = "none";
+            document.getElementById('offence-2-come-to-court-group').style.display = "none";
+        } else if (offence_2_plea == "Guilty") {
+            document.getElementById('offence-2-mitigation-guilty').style.display = "inline";
+            document.getElementById('offence-2-mitigation-guilty-2').style.display = "inline";
+            document.getElementById('offence-2-mitigation-not-guilty').style.display = "none";
+            document.getElementById('offence-2-mitigation-not-guilty-2').style.display = "none";
+            document.getElementById('2-not-guilty-plea-mitigation-change').style.display = "none";
+            document.getElementById('2-guilty-plea-mitigation-change').style.display = "inline";
+            document.getElementById('offence-2-come-to-court-group').style.display = "inlinde";
+        }
+        if (offence_3_plea == "Not guilty") {
+            document.getElementById('offence-3-mitigation-guilty').style.display = "none";
+            document.getElementById('offence-3-mitigation-guilty-2').style.display = "none";
+            document.getElementById('offence-3-mitigation-not-guilty').style.display = "inline";
+            document.getElementById('offence-3-mitigation-not-guilty-2').style.display = "inline";
+            document.getElementById('3-not-guilty-plea-mitigation-change').style.display = "inline";
+            document.getElementById('3-guilty-plea-mitigation-change').style.display = "none";
+            document.getElementById('offence-3-come-to-court-group').style.display = "none";
+        } else if (offence_3_plea == "Guilty") {
+            document.getElementById('offence-3-mitigation-guilty').style.display = "inline";
+            document.getElementById('offence-3-mitigation-guilty-2').style.display = "inline";
+            document.getElementById('offence-3-mitigation-not-guilty').style.display = "none";
+            document.getElementById('offence-3-mitigation-not-guilty-2').style.display = "none";
+            document.getElementById('3-not-guilty-plea-mitigation-change').style.display = "none";
+            document.getElementById('3-guilty-plea-mitigation-change').style.display = "inline";
+            document.getElementById('offence-3-come-to-court-group').style.display = "inline";
+        }
+        
+
+        if ((offence_1_plea == "Guilty") && (offence_2_plea == "Guilty") && (offence_3_plea == "Guilty")) {
+            document.getElementById('evidence-in-this-notice').style.display = "none";
+        } else {
+            document.getElementById('evidence-in-this-notice').style.display = "block-inline";
+        }
+
+
+        
+        
+        
+        
+        
+        
+        /* ******************* */
+        /* ******************* */
+        /* COME TO COURT CHECK */
+        var offence_1_guilty_come_to_court = document.getElementById('offence-3-guilty-come-to-court').innerHTML;
+        var offence_2_guilty_come_to_court = document.getElementById('offence-3-guilty-come-to-court').innerHTML;
+        var offence_3_guilty_come_to_court = document.getElementById('offence-3-guilty-come-to-court').innerHTML;
+
+        if ((offence_1_guilty_come_to_court == "Yes") && (offence_2_guilty_come_to_court == "Yes") && (offence_3_guilty_come_to_court == "Yes")) {
+            document.getElementById('your_court_hearing_group').style.display = "block-inline";
+            document.getElementById('bring-your-own-witness').style.display = "none";
+            document.getElementById('court-dates-group').style.display = "none";
+            
+        } else {
+            document.getElementById('your_court_hearing_group').style.display = "none";
+            document.getElementById('bring-your-own-witness').style.display = "block-inline";
+            document.getElementById('court-dates-group').style.display = "block-inline";
+        }
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        if ((offence_1_plea == "Not guilty") || (offence_2_plea == "Not guilty") || (offence_3_plea == "Not guilty")) {
+            document.getElementById('cya-come-to-court-header-1').style.display = "none";
+            document.getElementById('cya-come-to-court-header-2').style.display = "none";
+            document.getElementById('cya-come-to-court-header-3').style.display = "none";
+        } else {
+            document.getElementById('cya-come-to-court-header-1').style.display = "block-inline";
+            document.getElementById('cya-come-to-court-header-2').style.display = "block-inline";
+            document.getElementById('cya-come-to-court-header-3').style.display = "block-inline";
+        }
+
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        
+        
+        
+        /* ************** */
+        /* ************** */
+        /* ************** */
+        /* DISAGREE CHECK */
+        var disagree = document.getElementById('disagree').innerHTML;
+        if (disagree == "Yes") {
+            document.getElementById('cya-disagree-detail').style.display = "block-inline";
+        } else if (disagree == "No") {
+            document.getElementById('cya-disagree-detail').style.display = "none";
+        }
+
+        
+        
+        
+        
+        
+        /* ****************** */
+        /* ****************** */
+        /* YOUR WITNESS CHECK */
+        var do_you_want_to_bring_your_own_witness = document.getElementById('do-you-want-to-bring-your-own-witness').innerHTML;
+        
+        if (do_you_want_to_bring_your_own_witness == "Yes") {
+            document.getElementById('witness-details-group').style.display = "block-inline";
+        } else if (do_you_want_to_bring_your_own_witness == "No") {
+            document.getElementById('witness-details-group').style.display = "none";
+        }
+        
+        
+        
+        
+        
+        
+        /* ******************** */
+        /* ******************** */
+        /* ******************** */
+        /* DATES TO AVOID CHECK */
+        var dates_to_avoid = document.getElementById('dates-to-avoid').innerHTML;
+        
+        if (dates_to_avoid == "Yes") {
+            document.getElementById('cya-dates-to-avoid-details').style.display = "block-inline";
+        } else if (dates_to_avoid == "No") {
+            document.getElementById('cya-dates-to-avoid-details').style.display = "none";
+        }
+
+        
+        
+        
+        
+        
+        /* ***************** */
+        /* ***************** */
+        /* ***************** */
+        /* INTERPRETER CHECK */
+        var do_you_need_an_interpreter = document.getElementById('do-you-need-an-interpreter').innerHTML;
+        
+        if (do_you_need_an_interpreter == "Yes") {
+            document.getElementById('cya-which-language').style.display = "block-inline";
+        } else if (do_you_need_an_interpreter == "No") {
+            document.getElementById('cya-which-language').style.display = "none";
+        }
+
+        
+        
+        
+        
+        
+        /* ******************************* */
+        /* ******************************* */
+        /* ******************************* */
+        /* DISABILITY & ACCESS NEEDS CHECK */
+        var access_needs = document.getElementById('access-needs').innerHTML;
+        
+        if (access_needs == "Yes") {
+            document.getElementById('which-access-needs-group').style.display = "block-inline";
+        } else if (access_needs == "No") {
+            document.getElementById('which-access-needs-group').style.display = "none";
+        }
+
+        
+        
+        
+        
+        
+        /* ***************** */
+        /* ***************** */
+        /* ***************** */
+        /* YOUR INCOME CHECK */
+        var employment_status = document.getElementById('employment-status').innerHTML;
+        
+        
+        if (employment_status == "Other (for example, retired, student)") {
+            document.getElementById('cya-other-employment-details').style.display = "block-inline";
+        } else {
+            document.getElementById('cya-other-employment-details').style.display = "none";
+        }
+        
+        if ((employment_status == "Employed (full or part-time)") || (employment_status == "Self-employed")) {
+            document.getElementById('employer-details').style.display = "block-inline";
+        } else {
+            document.getElementById('employer-details').style.display = "none";
+        }
+
+        
+        
+        
+        
+        
+        /* ********************** */
+        /* ********************** */
+        /* ********************** */
+        /* INCOME FREQUENCY CHECK */
+        var income_frequency = document.getElementById('income-frequency').innerHTML;
+                
+        if (income_frequency == "Weekly") {
+            document.getElementById('pound-symbol').style.display = "inline";
+            document.getElementById('weekly-income-amount').style.display = "inline";
+            document.getElementById('fortnightly-income-amount').style.display = "none";
+            document.getElementById('monthly-income-amount').style.display = "none";
+            document.getElementById('yearly-income-amount').style.display = "none";
+        }
+                
+        if (income_frequency == "Fortnightly") {
+            document.getElementById('pound-symbol').style.display = "inline";
+            document.getElementById('weekly-income-amount').style.display = "none";
+            document.getElementById('fortnightly-income-amount').style.display = "inline";
+            document.getElementById('monthly-income-amount').style.display = "none";
+            document.getElementById('yearly-income-amount').style.display = "none";
+        }
+                
+        if (income_frequency == "Monthly") {
+            document.getElementById('pound-symbol').style.display = "inline";
+            document.getElementById('weekly-income-amount').style.display = "none";
+            document.getElementById('fortnightly-income-amount').style.display = "none";
+            document.getElementById('monthly-income-amount').style.display = "inline";
+            document.getElementById('yearly-income-amount').style.display = "none";
+        }
+                
+        if (income_frequency == "Yearly") {
+            document.getElementById('pound-symbol').style.display = "inline";
+            document.getElementById('weekly-income-amount').style.display = "none";
+            document.getElementById('fortnightly-income-amount').style.display = "none";
+            document.getElementById('monthly-income-amount').style.display = "none";
+            document.getElementById('yearly-income-amount').style.display = "inline";
+        }
+                
+        if (income_frequency == "I have no income") {
+            document.getElementById('pound-symbol').style.display = "none";
+            document.getElementById('weekly-income-amount').style.display = "none";
+            document.getElementById('fortnightly-income-amount').style.display = "none";
+            document.getElementById('monthly-income-amount').style.display = "none";
+            document.getElementById('yearly-income-amount').style.display = "none";
+        }
+
+        
+        
+        
+        
+        /* ************************************* */
+        /* ************************************* */
+        /* ************************************* */
+        /* GIVE INCOME OR BENEFITS DETAILS CHECK */
+        var give_us_income_or_benefits_details = document.getElementById('give-us-income-or-benefits-details').innerHTML;
+        
+        if (give_us_income_or_benefits_details == "Yes") {
+            
+            document.getElementById('income-details-group').style.display = "block-inline";
+            
+            if ((employment_status == "Unemployed") || (employment_status == "Other (for example, retired, student)")) {
+                document.getElementById('your-benefits-group').style.display = "block-inline";
+                document.getElementById('deduction-from-earnings-group').style.display = "none";
+                
+            } else {
+                document.getElementById('your-benefits-group').style.display = "none";
+            }
+            
+        } else if ((give_us_income_or_benefits_details == "No") || (give_us_income_or_benefits_details == "I have no income or benefits")) {
+            document.getElementById('income-details-group').style.display = "none";
+            document.getElementById('your-benefits-group').style.display = "none";
+        }
+        
+        
+        
+        
+        
+        
+        /* ************************** */
+        /* ************************** */
+        /* ************************** */
+        /* DEDUCT FROM EARNINGS CHECK */
+        var deduct_from_earnings = document.getElementById('deduct-from-earnings').innerHTML;
+        if (deduct_from_earnings == "Yes") {
+            document.getElementById('employer-details').style.display = "block-inline";
+        } else if (deduct_from_earnings == "No") {
+            document.getElementById('employer-details').style.display = "none";
+        }
+        
+        
+        
+        
+        
+        
+        
+        
+        /** ********************* */
+        /** ********************* */
+        /** ********************* */
+        /* EMPLOYER ADDRESS CHECK */
+        var employerAddressLine1 = document.getElementById('employer-address-line-1').innerHTML;
+        var employerAddressLine2 = document.getElementById('employer-address-line-2').innerHTML;
+        var employerAddressLine3 = document.getElementById('employer-address-line-3').innerHTML;
+        var employerAddressLine4 = document.getElementById('employer-address-line-4').innerHTML;
+        var employerAddressLine5 = document.getElementById('employer-address-line-5').innerHTML;
+        
+        if (employerAddressLine1 == "<br>") {
+            document.getElementById('employer-address-line-1').style.display = "none"
+        }
+        if (employerAddressLine2 == "<br>") {
+            document.getElementById('employer-address-line-2').style.display = "none"
+        }
+        if (employerAddressLine3 == "<br>") {
+            document.getElementById('employer-address-line-3').style.display = "none"
+        }
+        if (employerAddressLine4 == "<br>") {
+            document.getElementById('employer-address-line-4').style.display = "none"
+        }
+        if (employerAddressLine5 == "<br>") {
+            document.getElementById('employer-address-line-5').style.display = "none"
+        }
+
+        
+        
+        
+        
+        
+        /* ************** */
+        /* ************** */
+        /* ************** */
+        /* BENEFITS CHECK */
+        var are_you_claiming_benefits = document.getElementById('are-you-claiming-benefits').innerHTML;
+        
+        if (are_you_claiming_benefits == "Yes") {
+            document.getElementById('deduct-from-benefits-details').style.display = "block-inline";
+        } else if (are_you_claiming_benefits == "No") {
+            document.getElementById('deduct-from-benefits-details').style.display = "none";
+        }
+
+        
+        
+        
+        
+        
+        /* ************************** */
+        /* ************************** */
+        /* ************************** */
+        /* DEDUCT FROM BENEFITS CHECK */
+        var deduct_from_benefits = document.getElementById('deduct-from-benefits').innerHTML;
+        
+        if (deduct_from_benefits == "Yes") {
+            document.getElementById('benefits-details-group').style.display = "block-inline";
+        } else if (deduct_from_benefits == "No") {
+            document.getElementById('benefits-details-group').style.display = "none";
+        }
+
+        
+        
+        
+        
+        
+        /* ********************** */
+        /* ********************** */
+        /* ********************** */
+        /* MONTHLY OUTOINGS CHECK */
+        var give_details_of_monthly_bills = document.getElementById('give-details-of-monthly-bills').innerHTML;
+        var any_other_expenses = document.getElementById('any-other-expenses').innerHTML;
+                
+        if (give_details_of_monthly_bills == "Yes") {
+            document.getElementById('list-of-monthly-outgoings').style.display = "block-inline";
+            
+            if (any_other_expenses == "Yes") {
+                document.getElementById('cya-amount-of-other-expenses').style.display = "block-inline";
+            } else if (any_other_expenses == "No") {
+                document.getElementById('cya-amount-of-other-expenses').style.display = "none";
+            }
+            
+        } else if (give_details_of_monthly_bills == "No") {
+            document.getElementById('list-of-monthly-outgoings').style.display = "none";
+        }
+        
+    }
+    
+</script>
+
+{% include "includes/phase-banner.html" %}
+{% include "includes/breadcrumb_back.html" %}
+{% include "includes/data-check.html" %}
+
+<div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-full-width">
+
+        <h1 class="govuk-heading-xl">
+            Check your answers
+        </h1>
+        
+        <!-- ------------ -->
+        <!-- ------------ -->
+        <!-- ------------ -->
+        <!-- YOUR DETAILS -->
+        <div class="govuk-grid-row">
+            <div class="govuk-grid-column-two-thirds">
+                <h2 class="govuk-heading-m">Your details</h2>
+            </div>
+            <div class="govuk-grid-column-one-third">
+                <p class="govuk-body" style="text-align: right">
+                    <a href="/map/check-your-name-and-address">
+                        Change
+                    </a>
+                </p>
+            </div>
+        </div>
+        
+        <!-- DEFENDANT NAME -->
+        <div id="cya-name">
+            <div class="govuk-grid-row">
+                <div class="govuk-grid-column-one-third">
+                    <p class="govuk-body margin-bottom-0">
+                        Name
+                    </p>
+                </div>
+                <div class="govuk-grid-column-two-thirds">
+                    <p class="margin-bottom-0">
+                        {{data['defendant-first-name']}} <span style="text-transform: uppercase">{{data['defendant-last-name']}}</span>
+                    </p>
+                </div>
+            </div>
+            <div class="margin-top-10 margin-bottom-15">
+                <hr class="govuk-section-break govuk-section-break--visible">
+            </div>
+        </div>
+        
+        <!-- DEFENDANT ADDRESS -->
+        <div id="cya-address">
+            <div class="govuk-grid-row">
+                <div class="govuk-grid-column-one-third">
+                    <p class="govuk-body margin-bottom-0">
+                        Address
+                    </p>
+                </div>
+                <div class="govuk-grid-column-two-thirds">
+                    <p class="margin-bottom-0">
+                        <span id="defendant-address-line-1">{{data['defendant-address-line-1']}}<br></span>
+                        <span id="defendant-address-line-2">{{data['defendant-address-line-2']}}<br></span>
+                        <span id="defendant-address-line-3">{{data['defendant-address-line-3']}}<br></span>
+                        <span id="defendant-address-line-4">{{data['defendant-address-line-4']}}<br></span>
+                        <span id="defendant-address-line-5">{{data['defendant-address-line-5']}}<br></span>
+                        <span id="defendant-address-postcode">{{data['defendant-address-postcode']}}</span>
+                    </p>
+                </div>
+            </div>
+            <div class="margin-top-10 margin-bottom-15">
+                <hr class="govuk-section-break govuk-section-break--visible">
+            </div>
+        </div>
+        
+        <!-- ------------ -->
+        <!-- ------------ -->
+        <!-- ------------ -->
+        <!-- OTHER DETAILS -->
+        <div class="govuk-grid-row margin-top-60">
+            <div class="govuk-grid-column-two-thirds">
+                <h2 class="govuk-heading-m">Other details</h2>
+            </div>
+            <div class="govuk-grid-column-one-third">
+                <p class="govuk-body" style="text-align: right">
+                    <a href="/map/enter-other-details">
+                        Change
+                    </a>
+                </p>
+            </div>
+        </div>
+        
+        <!-- DEFENDANT DOB -->
+        <div id="cya-dob">
+            <div class="govuk-grid-row">
+                <div class="govuk-grid-column-one-third">
+                    <p class="govuk-body margin-bottom-0">
+                        Date of birth
+                    </p>
+                </div>
+                <div class="govuk-grid-column-two-thirds">
+                    <p class="margin-bottom-0">
+                        {{data['dob-day']}} {{data['dob-month']}} {{data['dob-year']}} 
+                    </p>
+                </div>
+            </div>
+            <div class="margin-top-10 margin-bottom-15">
+                <hr class="govuk-section-break govuk-section-break--visible">
+            </div>
+        </div>
+        
+        <!-- EMAIL ADDRESS -->
+        <div id="cya-email-address">
+            <div class="govuk-grid-row">
+                <div class="govuk-grid-column-one-third">
+                    <p class="govuk-body margin-bottom-0">
+                        Email address
+                    </p>
+                </div>
+                <div class="govuk-grid-column-two-thirds">
+                    <p class="margin-bottom-0">
+                        {{data['email-address']}} 
+                    </p>
+                </div>
+            </div>
+            <div class="margin-top-10 margin-bottom-15">
+                <hr class="govuk-section-break govuk-section-break--visible">
+                <hr class="govuk-section-break govuk-section-break--visible">
+            </div>
+        </div>
+        
+        <!-- CONTACT NUMBER -->
+        <div id="cya-contact-number">
+            <div class="govuk-grid-row">
+                <div class="govuk-grid-column-one-third">
+                    <p class="govuk-body margin-bottom-0">
+                        Contact number
+                    </p>
+                </div>
+                <div class="govuk-grid-column-two-thirds">
+                    <p class="margin-bottom-0">
+                        <span id="contact-number">{{data['contact-number']}}</span>
+                    </p>
+                </div>
+            </div>
+            <div class="margin-top-10 margin-bottom-15">
+                <hr class="govuk-section-break govuk-section-break--visible">
+            </div>
+        </div>
+        
+        <!-- ---------------------- -->
+        <!-- ---------------------- -->
+        <!-- ---------------------- -->
+        <!-- DRIVING Licence NUMBER -->
+        <div class="govuk-grid-row margin-top-60">
+            <div class="govuk-grid-column-two-thirds">
+                <h2 class="govuk-heading-m">Driving licence number</h2>
+            </div>
+            <div class="govuk-grid-column-one-third">
+                <p class="govuk-body" style="text-align: right">
+                    <a href="/map/driving-licence-number">
+                        Change
+                    </a>
+                </p>
+            </div>
+        </div>
+        
+        <!-- DO YOU HAVE A UK DRIVING Licence? -->
+        <div id="">
+            <div class="govuk-grid-row">
+                <div class="govuk-grid-column-one-third">
+                    <p class="govuk-body margin-bottom-0">
+                        Do you have a UK driving licence?
+                    </p>
+                </div>
+                <div class="govuk-grid-column-two-thirds">
+                    <p class="margin-bottom-0">
+                        <span id="do-you-have-a-dl">{{data['do-you-have-a-dl']}}</span>
+                    </p>
+                </div>
+            </div>
+            <div class="margin-top-10 margin-bottom-15">
+                <hr class="govuk-section-break govuk-section-break--visible">
+            </div>
+        </div>
+
+        <!-- YOUR UK DRIVING Licence NUMBER -->
+        <div id="cya-dl-yes">
+            <div class="govuk-grid-row">
+                <div class="govuk-grid-column-one-third">
+                    <p class="govuk-body margin-bottom-0">
+                        Your UK driving licence number
+                    </p>
+                </div>
+                <div class="govuk-grid-column-two-thirds">
+                    <p class="margin-bottom-0">
+                        {{data['dl-number']}} 
+                    </p>
+                </div>
+            </div>
+            <div class="margin-top-10 margin-bottom-15">
+                <hr class="govuk-section-break govuk-section-break--visible">
+            </div>
+        </div>
+
+        <!-- IF NO UK Licence WHAT TYPE IS IT? -->
+        <div id="cya-dl-no">
+            <div class="govuk-grid-row">
+                <div class="govuk-grid-column-one-third">
+                    <p class="govuk-body margin-bottom-0">
+                        Tell us what kind of drivers licence you hold
+                    </p>
+                </div>
+                <div class="govuk-grid-column-two-thirds">
+                    <p class="margin-bottom-0">
+                        {{data['licence-type']}} 
+                    </p>
+                </div>
+            </div>
+            <div class="margin-top-10 margin-bottom-15">
+                <hr class="govuk-section-break govuk-section-break--visible">
+            </div>
+        </div>
+
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <!-- --------- -->
+        <!-- --------- -->
+        <!-- --------- -->
+        <!-- --------- -->
+        <!-- --------- -->
+        <!-- --------- -->
+        <!-- --------- -->
+        <!-- --------- -->
+        <!-- --------- -->
+        <!-- OFFENCE 1 -->
+        <div class="govuk-grid-row margin-top-60">
+            <div class="govuk-grid-column-two-thirds">
+                <h2 class="govuk-heading-m margin-bottom-5">Offence 1 of 3</h2>
+                <h3 class="govuk-heading-s">{{data['offence-1-title']}}</h3>
+            </div>
+        </div>
+        
+        <!-- --------- -->
+        <!-- YOUR PLEA -->
+        <div class="govuk-grid-row ">
+            <div class="govuk-grid-column-two-thirds">
+                <h2 class="govuk-heading-s margin-bottom-5">Your plea</h2>
+            </div>
+            <div class="govuk-grid-column-one-third">
+                <p class="govuk-body" style="text-align: right">
+                    <a href="/map/your-plea#offence-1-plea-group">
+                        Change
+                    </a>
+                </p>
+            </div>
+        </div>
+                
+                <!-- HOW DO YOU PLEAD? -->
+                <div id="cya-offence-1-plea">
+                    <div class="govuk-grid-row">
+                        <div class="govuk-grid-column-one-third">
+                            <p class="govuk-body margin-bottom-0">
+                                How do you plead?
+                            </p>
+                        </div>
+                        <div class="govuk-grid-column-two-thirds">
+                            <p class="margin-bottom-0">
+                                {{data['offence-1-plea']}} 
+                            </p>
+                        </div>
+                    </div>
+                    <div class="margin-top-10 margin-bottom-30">
+                        <hr class="govuk-section-break govuk-section-break--visible">
+                        <hr class="govuk-section-break govuk-section-break--visible">
+                    </div>
+                </div>
+
+        <!-- -------------------------------- -->
+        <!-- WOULD YOU LIKE TO COME TO COURT? -->
+        <div id="offence-1-come-to-court-group">
+            
+            <div class="govuk-grid-row" id="cya-come-to-court-header-1">
+                <div class="govuk-grid-column-two-thirds">
+                    <h2 class="govuk-heading-s margin-bottom-5">Would you like to come to court?</h2>
+                </div>
+                <div class="govuk-grid-column-one-third">
+                    <p class="govuk-body" style="text-align: right">
+                        <a href="/map/guilty-plea">
+                            Change
+                        </a>
+                    </p>
+                </div>
+            </div>
+
+                    <!-- COME TO COURT -->
+                    <div id="cya-offence-1-plea">
+                        <div class="govuk-grid-row">
+                            <div class="govuk-grid-column-one-third">
+                                <p class="govuk-body margin-bottom-0">
+                                    Come to court
+                                </p>
+                            </div>
+                            <div class="govuk-grid-column-two-thirds">
+                                <p class="margin-bottom-0">
+                                    <span id="offence-1-guilty-come-to-court">{{data['guilty-come-to-court']}}</span> 
+                                </p>
+                            </div>
+                        </div>
+                        <div class="margin-top-10 margin-bottom-30">
+                            <hr class="govuk-section-break govuk-section-break--visible">
+                        </div>
+                    </div>
+
+        </div>
+
+        <!-- ---------- -->
+        <!-- MITIGATION -->
+        <div class="govuk-grid-row">
+            <div class="govuk-grid-column-two-thirds">
+                <h2 class="govuk-heading-s margin-bottom-5">
+                    <span id="offence-1-mitigation-guilty">Guilty plea mitigation</span> <span id="offence-1-mitigation-not-guilty">Why you think your not guilty</span>
+                </h2>
+            </div>
+            <div class="govuk-grid-column-one-third">
+                <p class="govuk-body" style="text-align: right">
+                    <span id="1-guilty-plea-mitigation-change"><a href="/map/guilty-plea-mitigation#offence-1-main-group">Change</a></span><span id="1-not-guilty-plea-mitigation-change"><a href="/map/not-guilty-plea#offence-1-main-group">Change</a></span>
+                </p>
+            </div>
+        </div>
+        
+                <!-- MITIGATION -->
+                <div id="cya-offence-1-mitigation">
+                    <div class="govuk-grid-row">
+                        <div class="govuk-grid-column-one-third">
+                            <p class="govuk-body margin-bottom-0">
+                                <span id="offence-1-mitigation-guilty-2">Is there anything you would like to tell the court?</span> <span id="offence-1-mitigation-not-guilty-2">You need to explain why you think you’re not guilty</span>
+                            </p>
+                        </div>
+                        <div class="govuk-grid-column-two-thirds">
+                            <p class="margin-bottom-0">
+                                {{data['offence-1-mitigation']}} 
+                            </p>
+                        </div>
+                    </div>
+                    <div class="margin-top-10 margin-bottom-30">
+                        <hr class="govuk-section-break govuk-section-break--visible">
+                    </div>
+                </div>
+
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <!-- --------- -->
+        <!-- --------- -->
+        <!-- --------- -->
+        <!-- --------- -->
+        <!-- --------- -->
+        <!-- --------- -->
+        <!-- --------- -->
+        <!-- --------- -->
+        <!-- --------- -->
+        <!-- --------- -->
+        <!-- --------- -->
+        <!-- --------- -->
+        <!-- OFFENCE 2 -->
+        <div class="govuk-grid-row margin-top-60">
+            <div class="govuk-grid-column-two-thirds">
+                <h2 class="govuk-heading-m margin-bottom-5">Offence 2 of 3</h2>
+                <h3 class="govuk-heading-s">{{data['offence-2-title']}}</h3>
+            </div>
+        </div>
+        
+        <!-- --------- -->
+        <!-- YOUR PLEA -->
+        <div class="govuk-grid-row ">
+            <div class="govuk-grid-column-two-thirds">
+                <h2 class="govuk-heading-s margin-bottom-5">Your plea</h2>
+            </div>
+            <div class="govuk-grid-column-one-third">
+                <p class="govuk-body" style="text-align: right">
+                    <a href="/map/your-plea#offence-2-plea-group">
+                        Change
+                    </a>
+                </p>
+            </div>
+        </div>
+                
+                <!-- HOW DO YOU PLEAD? -->
+                <div id="cya-offence-2-plea">
+                    <div class="govuk-grid-row">
+                        <div class="govuk-grid-column-one-third">
+                            <p class="govuk-body margin-bottom-0">
+                                How do you plead?
+                            </p>
+                        </div>
+                        <div class="govuk-grid-column-two-thirds">
+                            <p class="margin-bottom-0">
+                                {{data['offence-2-plea']}} 
+                            </p>
+                        </div>
+                    </div>
+                    <div class="margin-top-10 margin-bottom-30">
+                        <hr class="govuk-section-break govuk-section-break--visible">
+                        <hr class="govuk-section-break govuk-section-break--visible">
+                    </div>
+                </div>
+
+        <!-- -------------------------------- -->
+        <!-- WOULD YOU LIKE TO COME TO COURT? -->
+        <div id="offence-2-come-to-court-group">
+                    
+            <div class="govuk-grid-row" id="cya-come-to-court-header-2">
+                <div class="govuk-grid-column-two-thirds">
+                    <h2 class="govuk-heading-s margin-bottom-5">Would you like to come to court?</h2>
+                </div>
+                <div class="govuk-grid-column-one-third">
+                    <p class="govuk-body" style="text-align: right">
+                        <a href="/map/guilty-plea">
+                            Change
+                        </a>
+                    </p>
+                </div>
+            </div>
+
+                    <!-- COME TO COURT -->
+                    <div id="cya-offence-2-plea">
+                        <div class="govuk-grid-row">
+                            <div class="govuk-grid-column-one-third">
+                                <p class="govuk-body margin-bottom-0">
+                                    Come to court
+                                </p>
+                            </div>
+                            <div class="govuk-grid-column-two-thirds">
+                                <p class="margin-bottom-0">
+                                    <span id="offence-2-guilty-come-to-court">{{data['guilty-come-to-court']}}</span>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="margin-top-10 margin-bottom-30">
+                            <hr class="govuk-section-break govuk-section-break--visible">
+                        </div>
+                    </div>
+
+        </div>
+        
+        <!-- ---------- -->
+        <!-- MITIGATION -->
+        <div class="govuk-grid-row">
+            <div class="govuk-grid-column-two-thirds">
+                <h2 class="govuk-heading-s margin-bottom-5">
+                    <span id="offence-2-mitigation-guilty">Guilty plea mitigation</span> <span id="offence-2-mitigation-not-guilty">Why you think your not guilty</span>
+                </h2>
+            </div>
+            <div class="govuk-grid-column-one-third">
+                <p class="govuk-body" style="text-align: right">
+                    <span id="2-guilty-plea-mitigation-change"><a href="/map/guilty-plea-mitigation#offence-2-main-group">Change</a></span><span id="2-not-guilty-plea-mitigation-change"><a href="/map/not-guilty-plea#offence-2-main-group">Change</a></span>
+                </p>
+            </div>
+        </div>
+        
+                <!-- MITIGATION -->
+                <div id="cya-offence-2-mitigation">
+                    <div class="govuk-grid-row">
+                        <div class="govuk-grid-column-one-third">
+                            <p class="govuk-body margin-bottom-0">
+                                <span id="offence-2-mitigation-guilty-2">Is there anything you would like to tell the court?</span> <span id="offence-2-mitigation-not-guilty-2">You need to explain why you think you’re not guilty</span>
+                            </p>
+                        </div>
+                        <div class="govuk-grid-column-two-thirds">
+                            <p class="margin-bottom-0">
+                                {{data['offence-2-mitigation']}} 
+                            </p>
+                        </div>
+                    </div>
+                    <div class="margin-top-10 margin-bottom-15">
+                        <hr class="govuk-section-break govuk-section-break--visible">
+                    </div>
+                </div>
+
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <!-- --------- -->
+        <!-- --------- -->
+        <!-- --------- -->
+        <!-- --------- -->
+        <!-- --------- -->
+        <!-- --------- -->
+        <!-- --------- -->
+        <!-- --------- -->
+        <!-- --------- -->
+        <!-- --------- -->
+        <!-- --------- -->
+        <!-- --------- -->
+        <!-- OFFENCE 3 -->
+        <div class="govuk-grid-row margin-top-60">
+            <div class="govuk-grid-column-two-thirds">
+                <h2 class="govuk-heading-m margin-bottom-5">Offence 3 of 3</h2>
+                <h3 class="govuk-heading-s">{{data['offence-3-title']}}</h3>
+            </div>
+        </div>
+        
+        <!-- --------- -->
+        <!-- YOUR PLEA -->
+        <div class="govuk-grid-row ">
+            <div class="govuk-grid-column-two-thirds">
+                <h2 class="govuk-heading-s margin-bottom-5">Your plea</h2>
+            </div>
+            <div class="govuk-grid-column-one-third">
+                <p class="govuk-body" style="text-align: right">
+                    <a href="/map/your-plea#offence-3-plea-group">
+                        Change
+                    </a>
+                </p>
+            </div>
+        </div>
+                
+                <!-- HOW DO YOU PLEAD? -->
+                <div id="cya-offence-2-plea">
+                    <div class="govuk-grid-row">
+                        <div class="govuk-grid-column-one-third">
+                            <p class="govuk-body margin-bottom-0">
+                                How do you plead?
+                            </p>
+                        </div>
+                        <div class="govuk-grid-column-two-thirds">
+                            <p class="margin-bottom-0">
+                                {{data['offence-3-plea']}} 
+                            </p>
+                        </div>
+                    </div>
+                    <div class="margin-top-10 margin-bottom-30">
+                        <hr class="govuk-section-break govuk-section-break--visible">
+                    </div>
+                </div>
+
+        <!-- -------------------------------- -->
+        <!-- WOULD YOU LIKE TO COME TO COURT? -->
+        <div id="offence-3-come-to-court-group">
+
+            <div class="govuk-grid-row" id="cya-come-to-court-header-3">
+                <div class="govuk-grid-column-two-thirds">
+                    <h2 class="govuk-heading-s margin-bottom-5">Would you like to come to court?</h2>
+                </div>
+                <div class="govuk-grid-column-one-third">
+                    <p class="govuk-body" style="text-align: right">
+                        <a href="/map/guilty-plea">
+                            Change
+                        </a>
+                    </p>
+                </div>
+            </div>
+
+                <!-- COME TO COURT -->
+                <div id="cya-offence-3-plea">
+                    <div class="govuk-grid-row">
+                        <div class="govuk-grid-column-one-third">
+                            <p class="govuk-body margin-bottom-0">
+                                Come to court
+                            </p>
+                        </div>
+                        <div class="govuk-grid-column-two-thirds">
+                            <p class="margin-bottom-0">
+                                <span id="offence-3-guilty-come-to-court">{{data['guilty-come-to-court']}}</span>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="margin-top-10 margin-bottom-30">
+                        <hr class="govuk-section-break govuk-section-break--visible">
+                    </div>
+                </div>
+
+        </div>
+        
+        <!-- ---------- -->
+        <!-- MITIGATION -->
+        <div class="govuk-grid-row">
+            <div class="govuk-grid-column-two-thirds">
+                <h2 class="govuk-heading-s margin-bottom-5">
+                    <span id="offence-3-mitigation-guilty">Guilty plea mitigation</span> <span id="offence-3-mitigation-not-guilty">Why you think your not guilty</span>
+                </h2>
+            </div>
+            <div class="govuk-grid-column-one-third">
+                <p class="govuk-body" style="text-align: right">
+                    <span id="3-guilty-plea-mitigation-change"><a href="/map/guilty-plea-mitigation#offence-3-main-group">Change</a></span><span id="3-not-guilty-plea-mitigation-change"><a href="/map/not-guilty-plea#offence-3-main-group">Change</a></span>
+                </p>
+            </div>
+        </div>
+        
+                <!-- MITIGATION -->
+                <div id="cya-offence-3-mitigation">
+                    <div class="govuk-grid-row">
+                        <div class="govuk-grid-column-one-third">
+                            <p class="govuk-body margin-bottom-0">
+                                <span id="offence-3-mitigation-guilty-2">Is there anything you would like to tell the court?</span> <span id="offence-3-mitigation-not-guilty-2">You need to explain why you think you’re not guilty</span>
+                            </p>
+                        </div>
+                        <div class="govuk-grid-column-two-thirds">
+                            <p class="margin-bottom-0">
+                                {{data['offence-3-mitigation']}} 
+                            </p>
+                        </div>
+                    </div>
+                    <div class="margin-top-10 margin-bottom-60">
+                        <hr class="govuk-section-break govuk-section-break--visible">
+                    </div>
+                </div>
+
+
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+
+        
+        
+        
+        
+        
+        
+        
+        
+        <!-- ------------------ -->
+        <!-- ------------------ -->
+        <!-- ------------------ -->
+        <!-- YOUR COURT HEARING -->
+        <div id="your_court_hearing_group">
+        
+            <div class="govuk-grid-row margin-top-60">
+                <div class="govuk-grid-column-two-thirds">
+                    <h2 class="govuk-heading-m">Your court hearing</h2>
+                </div>
+                <div class="govuk-grid-column-one-third">
+                    <p class="govuk-body" style="text-align: right">
+                        <a href="/map/your-court-hearing">
+                            Change
+                        </a>
+                    </p>
+                </div>
+            </div>
+
+                <div id="bring-your-own-witness">
+                    
+                    <!-- DO YOU WANT TO BRING YOUR OWN WITNESSES? -->
+                    <div id="">
+                        <div class="govuk-grid-row">
+                            <div class="govuk-grid-column-one-third">
+                                <p class="govuk-body margin-bottom-0">
+                                    Do you want to bring your own witnesses?
+                                </p>
+                            </div>
+                            <div class="govuk-grid-column-two-thirds">
+                                <p class="margin-bottom-0">
+                                    <span id="do-you-want-to-bring-your-own-witness">{{data['do-you-want-to-bring-your-own-witness']}}</span>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="margin-top-10 margin-bottom-15">
+                            <hr class="govuk-section-break govuk-section-break--visible">
+                        </div>
+                    </div>
+
+                    <!-- YOUR WITNESS DETAILS -->
+                    <div id="witness-details-group">
+                        <div class="govuk-grid-row">
+                            <div class="govuk-grid-column-one-third">
+                                <p class="govuk-body margin-bottom-0">
+                                    Your witness details
+                                </p>
+                            </div>
+                            <div class="govuk-grid-column-two-thirds">
+                                <p class="margin-bottom-0">
+                                    <span id="">{{data['witness-details']}}</span>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="margin-top-10 margin-bottom-15">
+                            <hr class="govuk-section-break govuk-section-break--visible">
+                        </div>
+                    </div>
+
+                </div>
+            
+                <div id="court-dates-group">
+                    <!-- ----------- -->
+                    <!-- COURT DATES -->
+                    <div class="govuk-grid-row">
+                        <div class="govuk-grid-column-two-thirds">
+                            <h2 class="govuk-heading-s margin-top-15 margin-bottom-15">
+                                Court dates
+                            </h2>
+                        </div>
+                    </div>
+
+                            <!-- DATES TO AVOID -->
+                            <div id="cya-dates-to-avoid">
+                                <div class="govuk-grid-row">
+                                    <div class="govuk-grid-column-one-third">
+                                        <p class="govuk-body margin-bottom-0">Are there any dates you or your witnesses can’t attend court?</p>
+                                    </div>
+                                    <div class="govuk-grid-column-two-thirds">
+                                        <p class="margin-bottom-0">
+                                            <span id="dates-to-avoid">{{data['dates-to-avoid']}}</span>
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="margin-top-10 margin-bottom-15">
+                                    <hr class="govuk-section-break govuk-section-break--visible">
+                                </div>
+                            </div>
+
+                            <!-- DATES TO AVOID -->
+                            <div id="cya-dates-to-avoid-details">
+                                <div class="govuk-grid-row">
+                                    <div class="govuk-grid-column-one-third">
+                                        <p class="govuk-body margin-bottom-0">Dates you  or your witnesses can’t attend court?</p>
+                                    </div>
+                                    <div class="govuk-grid-column-two-thirds">
+                                        <p class="margin-bottom-0">
+                                            {{data['which-dates-to-avoid']}} 
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="margin-top-10 margin-bottom-15">
+                                    <hr class="govuk-section-break govuk-section-break--visible">
+                                </div>
+                            </div>
+                </div>
+            
+                <!-- --------- -->
+                <!-- LANGUAGES -->
+                <div class="govuk-grid-row">
+                    <div class="govuk-grid-column-two-thirds">
+                        <h2 class="govuk-heading-s margin-top-15 margin-bottom-15">
+                            Languages
+                        </h2>
+                    </div>
+                </div>
+
+                        <!-- INTERPRETER REQUIRED? -->
+                        <div id="cya-interpreter-required">
+                            <div class="govuk-grid-row">
+                                <div class="govuk-grid-column-one-third">
+                                    <p class="govuk-body margin-bottom-0">Do you need an interpreter in court?</p>
+                                </div>
+                                <div class="govuk-grid-column-two-thirds">
+                                    <p class="margin-bottom-0">
+                                        <span id="do-you-need-an-interpreter">{{data['do-you-need-an-interpreter']}}</span>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="margin-top-10 margin-bottom-15">
+                                <hr class="govuk-section-break govuk-section-break--visible">
+                                <hr class="govuk-section-break govuk-section-break--visible">
+                            </div>
+                        </div>
+
+                        <!-- WHICH LANGUAGE? -->
+                        <div id="cya-which-language">
+                            <div class="govuk-grid-row">
+                                <div class="govuk-grid-column-one-third">
+                                    <p class="govuk-body margin-bottom-0">Which language?</p>
+                                </div>
+                                <div class="govuk-grid-column-two-thirds">
+                                    <p class="margin-bottom-0">
+                                        {{data['which-language']}} 
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="margin-top-10 margin-bottom-15">
+                                <hr class="govuk-section-break govuk-section-break--visible">
+                            </div>
+                        </div>
+
+                        <!-- SPEAK WELSH? -->
+                        <div id="cya-speak-welsh">
+                            <div class="govuk-grid-row">
+                                <div class="govuk-grid-column-one-third">
+                                    <p class="govuk-body margin-bottom-0">Do you wish to speak Welsh in court?</p>
+                                </div>
+                                <div class="govuk-grid-column-two-thirds">
+                                    <p class="margin-bottom-0">
+                                        {{data['do-you-wish-to-speak-welsh']}} 
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="margin-top-10 margin-bottom-15">
+                                <hr class="govuk-section-break govuk-section-break--visible">
+                            </div>
+                        </div>
+
+                <!-- ---------------------------- -->
+                <!-- DISABILITIES OR ACCESS NEEDS -->
+                <div class="govuk-grid-row">
+                    <div class="govuk-grid-column-two-thirds">
+                        <h2 class="govuk-heading-s margin-top-15 margin-bottom-15">
+                            Disabilities or access needs
+                        </h2>
+                    </div>
+                </div>
+
+                    <!-- DO YOU HAVE A DISABILITY NEED? -->
+                    <div id="cya-offence-3-mitigation">
+                        <div class="govuk-grid-row">
+                            <div class="govuk-grid-column-one-third">
+                                <p class="govuk-body margin-bottom-0">Do you have a disability or access need you want the court to know about?</p>
+                            </div>
+                            <div class="govuk-grid-column-two-thirds">
+                                <p class="margin-bottom-0">
+                                    <span id="access-needs">{{data['access-needs']}}</span>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="margin-top-10 margin-bottom-15">
+                            <hr class="govuk-section-break govuk-section-break--visible">
+                            <hr class="govuk-section-break govuk-section-break--visible">
+                        </div>
+                    </div>
+
+                    <span id="which-access-needs-group">
+
+                        <!-- WHICH DISABILITY NEED? -->
+                        <div id="cya-offence-3-mitigation">
+                            <div class="govuk-grid-row">
+                                <div class="govuk-grid-column-one-third">
+                                    <p class="govuk-body margin-bottom-0">Tell the court about your disability or access needs</p>
+                                </div>
+                                <div class="govuk-grid-column-two-thirds">
+                                    <p class="margin-bottom-0">
+                                        {{data['which-access-needs']}} 
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="margin-top-10 margin-bottom-15">
+                                <hr class="govuk-section-break govuk-section-break--visible">
+                            </div>
+                        </div>
+
+                    </span>
+
+        </div>
+        
+        
+        
+        
+        
+        
+        
+        <!-- ------------- -->
+        <!-- ------------- -->
+        <!-- ------------- -->
+        <!-- YOUR FINANCES -->
+        <div class="govuk-grid-row margin-top-60">
+            <div class="govuk-grid-column-two-thirds">
+                <h2 class="govuk-heading-m">Your finances</h2>
+            </div>
+            <div class="govuk-grid-column-one-third">
+                <p class="govuk-body" style="text-align: right">
+                    <a href="/map/your-finances">
+                        Change
+                    </a>
+                </p>
+            </div>
+        </div>
+        
+            <!-- -------------------- -->
+            <!-- GIVE INCOME DETAILS? -->
+            <div id="cya-offence-3-mitigation">
+                <div class="govuk-grid-row">
+                    <div class="govuk-grid-column-one-third">
+                        <p class="govuk-body margin-bottom-0">Would you like to give us your income or benefits details so they can be taken into account?</p>
+                    </div>
+                    <div class="govuk-grid-column-two-thirds">
+                        <p class="margin-bottom-0">
+                            <span id="give-us-income-or-benefits-details">{{data['give-us-income-or-benefits-details']}}</span> 
+                        </p>
+                    </div>
+                </div>
+                <div class="margin-top-10 margin-bottom-15">
+                    <hr class="govuk-section-break govuk-section-break--visible">
+                </div>
+            </div>
+
+            <!-- ---------------------------- -->
+            <!-- DO YOU HAVE ANY COURT FINES? -->
+            <div id="cya-offence-3-mitigation">
+                <div class="govuk-grid-row">
+                    <div class="govuk-grid-column-one-third">
+                        <p class="govuk-body margin-bottom-0">Do you have any court fines?</p>
+                    </div>
+                    <div class="govuk-grid-column-two-thirds">
+                        <p class="margin-bottom-0">
+                            {{data['do-you-have-any-court-fines']}} 
+                        </p>
+                    </div>
+                </div>
+                <div class="margin-top-10 margin-bottom-15">
+                    <hr class="govuk-section-break govuk-section-break--visible">
+                </div>
+            </div>
+
+        <div id="income-details-group">
+
+            <!-- ----------- -->
+            <!-- YOUR INCOME -->
+            <div class="govuk-grid-row margin-top-60">
+                <div class="govuk-grid-column-two-thirds">
+                    <h2 class="govuk-heading-s">Your income</h2>
+                </div>
+                <div class="govuk-grid-column-one-third">
+                    <p class="govuk-body" style="text-align: right">
+                        <a href="/map/your-income">
+                            Change
+                        </a>
+                    </p>
+                </div>
+            </div>
+
+                <!-- ---------------------- -->
+                <!-- YOUR EMPLOYMENT STATUS -->
+                <div id="cya-employment-status">
+                    <div class="govuk-grid-row">
+                        <div class="govuk-grid-column-one-third">
+                            <p class="govuk-body margin-bottom-0">Your employment status</p>
+                        </div>
+                        <div class="govuk-grid-column-two-thirds">
+                            <p class="margin-bottom-0">
+                                <span id="employment-status">{{data['employment-status']}}</span>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="margin-top-10 margin-bottom-15">
+                        <hr class="govuk-section-break govuk-section-break--visible">
+                    </div>
+                </div>
+
+                <!-- ------------------------ -->
+                <!-- OTHER EMPLOYMENT DETAILS -->
+                <div id="cya-other-employment-details">
+                    <div class="govuk-grid-row">
+                        <div class="govuk-grid-column-one-third">
+                            <p class="govuk-body margin-bottom-0">Other employment details</p>
+                        </div>
+                        <div class="govuk-grid-column-two-thirds">
+                            <p class="margin-bottom-0">
+                                {{data['other-employment-details']}} 
+                            </p>
+                        </div>
+                    </div>
+                    <div class="margin-top-10 margin-bottom-15">
+                        <hr class="govuk-section-break govuk-section-break--visible">
+                    </div>
+                </div>
+
+                <!-- ----------- -->
+                <!-- YOUR INCOME -->
+                <div id="cya-your-income">
+                    <div class="govuk-grid-row">
+                        <div class="govuk-grid-column-one-third">
+                            <p class="govuk-body margin-bottom-0">Your income</p>
+                        </div>
+                        <div class="govuk-grid-column-two-thirds">
+                            <p class="margin-bottom-0">
+                                <span id="pound-symbol">£</span><span id="weekly-income-amount">{{data['income-frequency-1-amount']}}</span>
+                                <span id="fortnightly-income-amount">{{data['income-frequency-2-amount']}}</span>
+                                <span id="monthly-income-amount">{{data['income-frequency-3-amount']}}</span>
+                                <span id="yearly-income-amount">{{data['income-frequency-4-amount']}}</span>
+                                <span id="income-frequency">{{data['income-frequency']}}</span>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="margin-top-10 margin-bottom-15">
+                        <hr class="govuk-section-break govuk-section-break--visible">
+                    </div>
+                </div>
+
+            
+            
+            
+
+            
+            
+            <!-- ------------------------ -->
+            <!-- DEDUCTIONS FROM EARNINGS -->
+            <div id="deduction-from-earnings-group">
+            
+                <div class="govuk-grid-row margin-top-60">
+                    <div class="govuk-grid-column-two-thirds">
+                        <h2 class="govuk-heading-s">Deductions from earnings</h2>
+                    </div>
+                    <div class="govuk-grid-column-one-third">
+                        <p class="govuk-body" style="text-align: right">
+                            <a href="/map/deductions-from-earnings">
+                                Change
+                            </a>
+                        </p>
+                    </div>
+                </div>
+
+                    <!-- ------------------------ -->
+                    <!-- DEDUCTIONS FROM EARNINGS -->
+                    <div id="cya-offence-3-mitigation">
+                        <div class="govuk-grid-row">
+                            <div class="govuk-grid-column-one-third">
+                                <p class="govuk-body margin-bottom-0">If you need to pay a penalty, would you like us to deduct it from your earnings?</p>
+                            </div>
+                            <div class="govuk-grid-column-two-thirds">
+                                <p class="margin-bottom-0">
+                                    <span id="deduct-from-earnings">{{data['deduct-from-earnings']}}</span>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="margin-top-10 margin-bottom-15">
+                            <hr class="govuk-section-break govuk-section-break--visible">
+                        </div>
+                    </div>
+
+            </div>
+        
+            <div id="employer-details">
+
+                <!-- ---------------- -->
+                <!-- YOUR EMPLOYEMENT -->
+                <div class="govuk-grid-row margin-top-60">
+                    <div class="govuk-grid-column-two-thirds">
+                        <h2 class="govuk-heading-s">Your employment</h2>
+                    </div>
+                    <div class="govuk-grid-column-one-third">
+                        <p class="govuk-body" style="text-align: right">
+                            <a href="/map/your-employment">
+                                Change
+                            </a>
+                        </p>
+                    </div>
+                </div>
+
+                    <!-- ------------ -->
+                    <!-- COMPANY NAME -->
+                    <div id="cya-offence-3-mitigation">
+                        <div class="govuk-grid-row">
+                            <div class="govuk-grid-column-one-third">
+                                <p class="govuk-body margin-bottom-0">Which company do you work for?</p>
+                            </div>
+                            <div class="govuk-grid-column-two-thirds">
+                                <p class="margin-bottom-0">
+                                    {{data['name-of-employer']}} 
+                                </p>
+                            </div>
+                        </div>
+                        <div class="margin-top-10 margin-bottom-15">
+                            <hr class="govuk-section-break govuk-section-break--visible">
+                        </div>
+                    </div>
+
+                    <!-- ------------------ -->
+                    <!-- EMPLOYEE REFERENCE -->
+                    <div id="cya-offence-3-mitigation">
+                        <div class="govuk-grid-row">
+                            <div class="govuk-grid-column-one-third">
+                                <p class="govuk-body margin-bottom-0">Employee reference</p>
+                            </div>
+                            <div class="govuk-grid-column-two-thirds">
+                                <p class="margin-bottom-0">
+                                    {{data['employee-number']}} 
+                                </p>
+                            </div>
+                        </div>
+                        <div class="margin-top-10 margin-bottom-15">
+                            <hr class="govuk-section-break govuk-section-break--visible">
+                            <hr class="govuk-section-break govuk-section-break--visible">
+                        </div>
+                    </div>
+
+                    <!-- ----------------- -->
+                    <!-- EMPLOYER'S ADDRESS -->
+                    <div id="cya-offence-3-mitigation">
+                        <div class="govuk-grid-row">
+                            <div class="govuk-grid-column-one-third">
+                                <p class="govuk-body margin-bottom-0">Employer's address</p>
+                            </div>
+                            <div class="govuk-grid-column-two-thirds">
+                                <p class="margin-bottom-0">
+                                    <span id="employer-address-line-1">{{data['employer-address-line-1']}}<br></span>
+                                    <span id="employer-address-line-2">{{data['employer-address-line-2']}}<br></span>
+                                    <span id="employer-address-line-3">{{data['employer-address-line-3']}}<br></span>
+                                    <span id="employer-address-line-4">{{data['employer-address-line-4']}}<br></span>
+                                    <span id="employer-address-line-5">{{data['employer-address-line-5']}}<br></span>
+                                    <span id="employer-address-postcode">{{data['employer-address-postcode']}}</span>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="margin-top-10 margin-bottom-15">
+                            <hr class="govuk-section-break govuk-section-break--visible">
+                        </div>
+                    </div>
+
+                    <!-- ----------------- -->
+                    <!-- EMPLOYER'S TELEPHONE -->
+                    <div id="cya-offence-3-mitigation">
+                        <div class="govuk-grid-row">
+                            <div class="govuk-grid-column-one-third">
+                                <p class="govuk-body margin-bottom-0">Employer's telephone</p>
+                            </div>
+                            <div class="govuk-grid-column-two-thirds">
+                                <p class="margin-bottom-0">
+                                    {{data['employers-telephone']}} 
+                                </p>
+                            </div>
+                        </div>
+                        <div class="margin-top-10 margin-bottom-15">
+                            <hr class="govuk-section-break govuk-section-break--visible">
+                        </div>
+                    </div>
+
+            </div>
+        
+        </div>
+        
+        
+        
+        
+        
+        <div id="your-benefits-group">
+        
+            <!-- ------------- -->
+            <!-- YOUR BENEFITS -->
+            <div class="govuk-grid-row margin-top-60">
+                <div class="govuk-grid-column-two-thirds">
+                    <h2 class="govuk-heading-m">Your benefits</h2>
+                </div>
+                <div class="govuk-grid-column-one-third">
+                    <p class="govuk-body" style="text-align: right">
+                        <a href="/map/your-benefits">
+                            Change
+                        </a>
+                    </p>
+                </div>
+            </div>
+
+                <!-- -------------------------- -->
+                <!-- ARE YOU CLAIMING BENEFTIS? -->
+                <div id="cya-offence-3-mitigation">
+                    <div class="govuk-grid-row">
+                        <div class="govuk-grid-column-one-third">
+                            <p class="govuk-body margin-bottom-0">Are you claiming any benefits?</p>
+                        </div>
+                        <div class="govuk-grid-column-two-thirds">
+                            <p class="margin-bottom-0">
+                                <span id="are-you-claiming-benefits">{{data['are-you-claiming-benefits']}}</span>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="margin-top-10 margin-bottom-15">
+                        <hr class="govuk-section-break govuk-section-break--visible">
+                    </div>
+                </div>
+
+                <div id="deduct-from-benefits-details">
+                    
+                    <!-- ------------------------ -->
+                    <!-- DEDUCT FROM YOUR BENEFTS -->
+                    <div class="govuk-grid-row margin-top-30">
+                        <div class="govuk-grid-column-two-thirds">
+                            <h2 class="govuk-heading-s">Deduct from your benefits</h2>
+                        </div>
+                        <div class="govuk-grid-column-one-third">
+                            <p class="govuk-body" style="text-align: right">
+                                <a href="/map/your_details">
+                                    Change
+                                </a>
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- --------------------- -->
+                    <!-- DEDUCT FROM BENEFITS? -->
+                    <div id="cya-offence-3-mitigation">
+                        <div class="govuk-grid-row">
+                            <div class="govuk-grid-column-one-third">
+                                <p class="govuk-body margin-bottom-0">If you need to pay a penalty, would you like us to deduct it from your benefits?</p>
+                            </div>
+                            <div class="govuk-grid-column-two-thirds">
+                                <p class="margin-bottom-0">
+                                    <span id="deduct-from-benefits">{{data['deduct-from-benefits']}}</span>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="margin-top-10 margin-bottom-15">
+                            <hr class="govuk-section-break govuk-section-break--visible">
+                        </div>
+                    </div>
+
+                    <span id="benefits-details-group">
+                        <!-- -------------------------------- -->
+                        <!-- WHICH BENEFITS ARE YOU CLAIMING? -->
+                        <div id="cya-offence-3-mitigation">
+                            <div class="govuk-grid-row">
+                                <div class="govuk-grid-column-one-third">
+                                    <p class="govuk-body margin-bottom-0">Which benefits are you claiming?</p>
+                                </div>
+                                <div class="govuk-grid-column-two-thirds">
+                                    <p class="margin-bottom-0">
+                                        {{data['benefits-being-claimed']}} 
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="margin-top-10 margin-bottom-15">
+                                <hr class="govuk-section-break govuk-section-break--visible">
+                            </div>
+                        </div>
+
+                        <!-- ------------------------- -->
+                        <!-- NATIONAL INSURANCE NUMBER -->
+                        <div id="cya-offence-3-mitigation">
+                            <div class="govuk-grid-row">
+                                <div class="govuk-grid-column-one-third">
+                                    <p class="govuk-body margin-bottom-0">National Insurance number</p>
+                                </div>
+                                <div class="govuk-grid-column-two-thirds">
+                                    <p class="margin-bottom-0">
+                                        {{data['nin']}} 
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="margin-top-10 margin-bottom-15">
+                                <hr class="govuk-section-break govuk-section-break--visible">
+                            </div>
+                        </div>
+                    </span>
+                    
+                </div>
+
+        </div>
+        
+        
+        
+        
+        
+        
+        <!-- -------------- -->
+        <!-- YOUR OUTGOINGS -->
+        <div class="govuk-grid-row margin-top-60">
+            <div class="govuk-grid-column-two-thirds">
+                <h2 class="govuk-heading-m">Your outgoings</h2>
+            </div>
+            <div class="govuk-grid-column-one-third">
+                <p class="govuk-body" style="text-align: right">
+                    <a href="/map/your-outgoings">
+                        Change
+                    </a>
+                </p>
+            </div>
+        </div>
+        
+            <!-- ----------------------------- -->
+            <!-- GIVE DETAILS OF MONTHLY BILLS -->
+            <div id="cya-offence-3-mitigation">
+                <div class="govuk-grid-row">
+                    <div class="govuk-grid-column-one-third">
+                        <p class="govuk-body margin-bottom-0">Would you like to give details of your monthly bills?</p>
+                    </div>
+                    <div class="govuk-grid-column-two-thirds">
+                        <p class="margin-bottom-0">
+                            <span id="give-details-of-monthly-bills">{{data['give-details-of-monthly-bills']}}</span>
+                        </p>
+                    </div>
+                </div>
+                <div class="margin-top-10 margin-bottom-15">
+                    <hr class="govuk-section-break govuk-section-break--visible">
+                </div>
+            </div>
+
+            <div id="list-of-monthly-outgoings">
+                
+                <!-- ---------------------- -->
+                <!-- YOUR MONTHLY OUTGOINGS -->
+                <div class="govuk-grid-row margin-top-60">
+                    <div class="govuk-grid-column-two-thirds">
+                        <h2 class="govuk-heading-s">Your monthly outgoings</h2>
+                    </div>
+                    <div class="govuk-grid-column-one-third">
+                        <p class="govuk-body" style="text-align: right">
+                            <a href="/map/your-monthly-outgoings">
+                                Change
+                            </a>
+                        </p>
+                    </div>
+                </div>
+
+                    <!-- ------------ -->
+                    <!-- ACCOMODATION -->
+                    <div id="cya-offence-3-mitigation">
+                        <div class="govuk-grid-row">
+                            <div class="govuk-grid-column-one-third">
+                                <p class="govuk-body margin-bottom-0">Accomodation</p>
+                            </div>
+                            <div class="govuk-grid-column-two-thirds">
+                                <p class="margin-bottom-0">
+                                    £{{data['accomodation']}} 
+                                </p>
+                            </div>
+                        </div>
+                        <div class="margin-top-10 margin-bottom-15">
+                            <hr class="govuk-section-break govuk-section-break--visible">
+                        </div>
+                    </div>
+
+                    <!-- ----------- -->
+                    <!-- COUNCIL TAX -->
+                    <div id="cya-offence-3-mitigation">
+                        <div class="govuk-grid-row">
+                            <div class="govuk-grid-column-one-third">
+                                <p class="govuk-body margin-bottom-0">Council tax</p>
+                            </div>
+                            <div class="govuk-grid-column-two-thirds">
+                                <p class="margin-bottom-0">
+                                    £{{data['council-tax']}} 
+                                </p>
+                            </div>
+                        </div>
+                        <div class="margin-top-10 margin-bottom-15">
+                            <hr class="govuk-section-break govuk-section-break--visible">
+                        </div>
+                    </div>
+
+                    <!-- --------------- -->
+                    <!-- HOUSEHOLD BILLS -->
+                    <div id="cya-offence-3-mitigation">
+                        <div class="govuk-grid-row">
+                            <div class="govuk-grid-column-one-third">
+                                <p class="govuk-body margin-bottom-0">Household bills</p>
+                            </div>
+                            <div class="govuk-grid-column-two-thirds">
+                                <p class="margin-bottom-0">
+                                    £{{data['household-bills']}} 
+                                </p>
+                            </div>
+                        </div>
+                        <div class="margin-top-10 margin-bottom-15">
+                            <hr class="govuk-section-break govuk-section-break--visible">
+                        </div>
+                    </div>
+
+                    <!-- --------------- -->
+                    <!-- TRAVEL EXPENSES -->
+                    <div id="cya-offence-3-mitigation">
+                        <div class="govuk-grid-row">
+                            <div class="govuk-grid-column-one-third">
+                                <p class="govuk-body margin-bottom-0">Travel expenses</p>
+                            </div>
+                            <div class="govuk-grid-column-two-thirds">
+                                <p class="margin-bottom-0">
+                                    £{{data['travel-expenses']}} 
+                                </p>
+                            </div>
+                        </div>
+                        <div class="margin-top-10 margin-bottom-15">
+                            <hr class="govuk-section-break govuk-section-break--visible">
+                        </div>
+                    </div>
+
+                    <!-- ------------------ -->
+                    <!-- CHILD MAINTENTANCE -->
+                    <div id="cya-offence-3-mitigation">
+                        <div class="govuk-grid-row">
+                            <div class="govuk-grid-column-one-third">
+                                <p class="govuk-body margin-bottom-0">Child maintenance</p>
+                            </div>
+                            <div class="govuk-grid-column-two-thirds">
+                                <p class="margin-bottom-0">
+                                    £{{data['child-maintenance']}} 
+                                </p>
+                            </div>
+                        </div>
+                        <div class="margin-top-10 margin-bottom-15">
+                            <hr class="govuk-section-break govuk-section-break--visible">
+                        </div>
+                    </div>
+
+                    <!-- ------------------- -->
+                    <!-- ANY OTHER EXPENSES? -->
+                    <div id="cya-offence-3-mitigation">
+                        <div class="govuk-grid-row">
+                            <div class="govuk-grid-column-one-third">
+                                <p class="govuk-body margin-bottom-0">Any other expenses?</p>
+                            </div>
+                            <div class="govuk-grid-column-two-thirds">
+                                <p class="margin-bottom-0">
+                                    <span id="any-other-expenses">{{data['any-other-expenses']}}</span>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="margin-top-10 margin-bottom-15">
+                            <hr class="govuk-section-break govuk-section-break--visible">
+                        </div>
+                    </div>
+
+                        <!-- ------------------- -->
+                        <!-- AMOUNT OF OTHER EXPENSES -->
+                        <div id="cya-amount-of-other-expenses">
+                            <div class="govuk-grid-row">
+                                <div class="govuk-grid-column-one-third">
+                                    <p class="govuk-body margin-bottom-0">Amount of other expenses</p>
+                                </div>
+                                <div class="govuk-grid-column-two-thirds">
+                                    <p class="margin-bottom-0">
+                                        £{{data['amount-of-other-expenses']}} including {{data['list-of-other-expenses']}}
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="margin-top-10 margin-bottom-15">
+                                <hr class="govuk-section-break govuk-section-break--visible">
+                            </div>
+                        </div>
+
+                    <!-- -------------------- -->
+                    <!-- MONTHLY AMOUNT TOTAL -->
+                    <div id="cya-offence-3-mitigation">
+                        <div class="govuk-grid-row">
+                            <div class="govuk-grid-column-one-third">
+                                <p class="govuk-body margin-bottom-0">Monthly amount total</p>
+                            </div>
+                            <div class="govuk-grid-column-two-thirds">
+                                <p class="margin-bottom-0">
+                                    £{{data['total-amount-of-all-expenses']}} 
+                                </p>
+                            </div>
+                        </div>
+                        <div class="margin-top-10 margin-bottom-15">
+                            <hr class="govuk-section-break govuk-section-break--visible">
+                        </div>
+                    </div>
+
+            </div>
+
+        <form action="" method="post">
+            <div class="govuk-form-group">
+                
+                <p class="margin-top-60 govuk-hint">You can download a copy of your plea after it has been submitted.</p>
+
+                <button type="submit" class="govuk-button margin-top-30 margin-bottom-15">
+                    Confirm and continue
+                </button>
+                <p class="govuk-body">
+                    <a class="govuk-link" href="javascript:history.back()">Back</a>
+                </p>
+
+            </div>
+        </form>
+        
+    </div>
+
+</div>
+
+{% endblock %}
