@@ -78,11 +78,11 @@
         /* **************** */
         /* **************** */
         /* MITIGATION CHECK */
-        var offence_1_plea = document.getElementById('offence-1-plea').innerHTML;
-        var offence_2_plea = document.getElementById('offence-2-plea').innerHTML;
+ //       var offence_1_plea = document.getElementById('offence-1-plea').innerHTML;
+ //       var offence_2_plea = document.getElementById('offence-2-plea').innerHTML;
         var offence_3_plea = document.getElementById('offence-3-plea').innerHTML;
         
-        if (offence_1_plea == "Not guilty") {
+/*        if (offence_1_plea == "Not guilty") {
             document.getElementById('offence-1-mitigation-guilty').style.display = "none";
             document.getElementById('offence-1-mitigation-guilty-2').style.display = "none";
             document.getElementById('offence-1-mitigation-not-guilty').style.display = "inline";
@@ -116,6 +116,8 @@
             document.getElementById('2-guilty-plea-mitigation-change').style.display = "inline";
             document.getElementById('offence-2-come-to-court-group').style.display = "inlinde";
         }
+
+        */
         if (offence_3_plea == "Not guilty") {
             document.getElementById('offence-3-mitigation-guilty').style.display = "none";
             document.getElementById('offence-3-mitigation-guilty-2').style.display = "none";
@@ -135,7 +137,8 @@
         }
         
 
-        if ((offence_1_plea == "Guilty") && (offence_2_plea == "Guilty") && (offence_3_plea == "Guilty")) {
+//        if ((offence_1_plea == "Guilty") && (offence_2_plea == "Guilty") && (offence_3_plea == "Guilty")) {
+        if (offence_3_plea == "Guilty") {
             document.getElementById('evidence-in-this-notice').style.display = "none";
         } else {
             document.getElementById('evidence-in-this-notice').style.display = "block-inline";
@@ -151,11 +154,12 @@
         /* ******************* */
         /* ******************* */
         /* COME TO COURT CHECK */
-        var offence_1_guilty_come_to_court = document.getElementById('offence-3-guilty-come-to-court').innerHTML;
-        var offence_2_guilty_come_to_court = document.getElementById('offence-3-guilty-come-to-court').innerHTML;
+ //       var offence_1_guilty_come_to_court = document.getElementById('offence-3-guilty-come-to-court').innerHTML;
+ //       var offence_2_guilty_come_to_court = document.getElementById('offence-3-guilty-come-to-court').innerHTML;
         var offence_3_guilty_come_to_court = document.getElementById('offence-3-guilty-come-to-court').innerHTML;
 
-        if ((offence_1_guilty_come_to_court == "Yes") && (offence_2_guilty_come_to_court == "Yes") && (offence_3_guilty_come_to_court == "Yes")) {
+//        if ((offence_1_guilty_come_to_court == "Yes") && (offence_2_guilty_come_to_court == "Yes") && (offence_3_guilty_come_to_court == "Yes")) {
+        if (offence_3_guilty_come_to_court == "Yes") {
             document.getElementById('your_court_hearing_group').style.display = "block-inline";
             document.getElementById('bring-your-own-witness').style.display = "none";
             document.getElementById('court-dates-group').style.display = "none";
@@ -167,22 +171,8 @@
         }
         
         
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        if ((offence_1_plea == "Not guilty") || (offence_2_plea == "Not guilty") || (offence_3_plea == "Not guilty")) {
+//        if ((offence_1_plea == "Not guilty") || (offence_2_plea == "Not guilty") || (offence_3_plea == "Not guilty")) {
+       if (offence_3_plea == "Not guilty") {
             document.getElementById('cya-come-to-court-header-1').style.display = "none";
             document.getElementById('cya-come-to-court-header-2').style.display = "none";
             document.getElementById('cya-come-to-court-header-3').style.display = "none";
@@ -192,19 +182,6 @@
             document.getElementById('cya-come-to-court-header-3').style.display = "block-inline";
         }
 
-        
-        
-            
-            
-            
-            
-            
-            
-            
-            
-        
-        
-        
         
         /* ************** */
         /* ************** */
@@ -738,16 +715,16 @@
         <!-- --------- -->
         <!-- --------- -->
         <!-- OFFENCE 1 -->
-        <div class="govuk-grid-row margin-top-60">
+<!--       <div class="govuk-grid-row margin-top-60">
             <div class="govuk-grid-column-two-thirds">
                 <h2 class="govuk-heading-m margin-bottom-5">Offence 1 of 3</h2>
                 <h3 class="govuk-heading-s">{{data['offence-1-title']}}</h3>
             </div>
         </div>
-        
+-->        
         <!-- --------- -->
         <!-- YOUR PLEA -->
-        <div class="govuk-grid-row ">
+ <!--       <div class="govuk-grid-row ">
             <div class="govuk-grid-column-two-thirds">
                 <h2 class="govuk-heading-s margin-bottom-5">Your plea</h2>
             </div>
@@ -759,8 +736,9 @@
                 </p>
             </div>
         </div>
-                
+ -->
                 <!-- HOW DO YOU PLEAD? -->
+ <!--               
                 <div id="cya-offence-1-plea">
                     <div class="govuk-grid-row">
                         <div class="govuk-grid-column-one-third">
@@ -779,10 +757,10 @@
                         <hr class="govuk-section-break govuk-section-break--visible">
                     </div>
                 </div>
-
+-->
         <!-- -------------------------------- -->
         <!-- WOULD YOU LIKE TO COME TO COURT? -->
-        <div id="offence-1-come-to-court-group">
+<!--        <div id="offence-1-come-to-court-group">
             
             <div class="govuk-grid-row" id="cya-come-to-court-header-1">
                 <div class="govuk-grid-column-two-thirds">
@@ -796,8 +774,8 @@
                     </p>
                 </div>
             </div>
-
                     <!-- COME TO COURT -->
+<!--
                     <div id="cya-offence-1-plea">
                         <div class="govuk-grid-row">
                             <div class="govuk-grid-column-one-third">
@@ -817,10 +795,10 @@
                     </div>
 
         </div>
-
+-->
         <!-- ---------- -->
         <!-- MITIGATION -->
-        <div class="govuk-grid-row">
+ <!--       <div class="govuk-grid-row">
             <div class="govuk-grid-column-two-thirds">
                 <h2 class="govuk-heading-s margin-bottom-5">
                     <span id="offence-1-mitigation-guilty">Guilty plea mitigation</span> <span id="offence-1-mitigation-not-guilty">Why you think your not guilty</span>
@@ -833,8 +811,8 @@
             </div>
         </div>
         
-                <!-- MITIGATION -->
-                <div id="cya-offence-1-mitigation">
+-->                <!-- MITIGATION -->
+<!--                <div id="cya-offence-1-mitigation">
                     <div class="govuk-grid-row">
                         <div class="govuk-grid-column-one-third">
                             <p class="govuk-body margin-bottom-0">
@@ -859,7 +837,7 @@
         
         
         
-        
+ -->       
         
         
         <!-- --------- -->
@@ -875,16 +853,20 @@
         <!-- --------- -->
         <!-- --------- -->
         <!-- OFFENCE 2 -->
-        <div class="govuk-grid-row margin-top-60">
+ <!--   
+     <div class="govuk-grid-row margin-top-60">
             <div class="govuk-grid-column-two-thirds">
                 <h2 class="govuk-heading-m margin-bottom-5">Offence 2 of 3</h2>
                 <h3 class="govuk-heading-s">{{data['offence-2-title']}}</h3>
             </div>
         </div>
-        
+-->
+
         <!-- --------- -->
         <!-- YOUR PLEA -->
-        <div class="govuk-grid-row ">
+ <!--   
+        
+            <div class="govuk-grid-row ">
             <div class="govuk-grid-column-two-thirds">
                 <h2 class="govuk-heading-s margin-bottom-5">Your plea</h2>
             </div>
@@ -896,9 +878,10 @@
                 </p>
             </div>
         </div>
-                
+-->                
                 <!-- HOW DO YOU PLEAD? -->
-                <div id="cya-offence-2-plea">
+<!--   
+                 <div id="cya-offence-2-plea">
                     <div class="govuk-grid-row">
                         <div class="govuk-grid-column-one-third">
                             <p class="govuk-body margin-bottom-0">
@@ -916,9 +899,10 @@
                         <hr class="govuk-section-break govuk-section-break--visible">
                     </div>
                 </div>
-
+-->
         <!-- -------------------------------- -->
         <!-- WOULD YOU LIKE TO COME TO COURT? -->
+ <!--   
         <div id="offence-2-come-to-court-group">
                     
             <div class="govuk-grid-row" id="cya-come-to-court-header-2">
@@ -933,10 +917,10 @@
                     </p>
                 </div>
             </div>
-
+-->
                     <!-- COME TO COURT -->
-                    <div id="cya-offence-2-plea">
-                        <div class="govuk-grid-row">
+<!--   
+                         <div class="govuk-grid-row">
                             <div class="govuk-grid-column-one-third">
                                 <p class="govuk-body margin-bottom-0">
                                     Come to court
@@ -954,10 +938,11 @@
                     </div>
 
         </div>
-        
+-->        
         <!-- ---------- -->
         <!-- MITIGATION -->
-        <div class="govuk-grid-row">
+<!--   
+         <div class="govuk-grid-row">
             <div class="govuk-grid-column-two-thirds">
                 <h2 class="govuk-heading-s margin-bottom-5">
                     <span id="offence-2-mitigation-guilty">Guilty plea mitigation</span> <span id="offence-2-mitigation-not-guilty">Why you think your not guilty</span>
@@ -969,8 +954,9 @@
                 </p>
             </div>
         </div>
-        
+ -->       
                 <!-- MITIGATION -->
+ <!--   
                 <div id="cya-offence-2-mitigation">
                     <div class="govuk-grid-row">
                         <div class="govuk-grid-column-one-third">
@@ -990,7 +976,7 @@
                 </div>
 
         
-        
+ -->       
         
         
         
@@ -1014,7 +1000,7 @@
         <!-- OFFENCE 3 -->
         <div class="govuk-grid-row margin-top-60">
             <div class="govuk-grid-column-two-thirds">
-                <h2 class="govuk-heading-m margin-bottom-5">Offence 3 of 3</h2>
+                <h2 class="govuk-heading-m margin-bottom-5">Offence 1 of 1</h2>
                 <h3 class="govuk-heading-s">{{data['offence-3-title']}}</h3>
             </div>
         </div>

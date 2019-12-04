@@ -37,18 +37,18 @@ router.post('/map/start-page', function (req, res) {
     /* ********* */
     /* ********* */
     /* OFFENCE 1 */
-    req.session.data['offence-1-title'] = "Driving without insurance"
+/*    req.session.data['offence-1-title'] = "Driving without insurance"
     req.session.data['offence-1-wording-1'] = "On 07/03/2019 the defendant was the driver of an Audi A4 VRM N15 REP, on a road, or other public place, namely Lordship Lane, Lower Broughton, when there was no insurance in force covering use of that vehicle."
     req.session.data['offence-1-wording-3'] = "This offence carries penalty points"
-    
+*/    
     /* ********* */
     /* ********* */
     /* OFFENCE 2 */
-    req.session.data['offence-2-title'] = "Failed to produce certificate of insurance"
+/*    req.session.data['offence-2-title'] = "Failed to produce certificate of insurance"
     req.session.data['offence-2-wording-1'] = "On being so required by a constable, the driver failed to produce for examination the relevant certificate of insurance or security under Part VI of the Road Traffic Act 1988. The defendant was issued with HORT1 requesting production of documents to a nominated police station within 7 days. After this time period had expired the defendant was issued with a Conditional Offer of Fixed Penalty. Payment and licence were not received within the time constraints."
     req.session.data['offence-1-wording-2'] = "Contrary to section 143 of the Road Traffic Act 1988 and Schedule 2 of the Road Traffic Offenders Act 1988"
     req.session.data['offence-2-wording-3'] = ""
-
+*/
     /* ********* */
     /* ********* */
     /* OFFENCE 3 */
@@ -186,18 +186,20 @@ router.post('/map/driving-license-number', function (req, res) {
 /* YOUR PLEA */
 router.post('/map/your-plea', function (req, res) {
         
-    var offence_1_plea = req.session.data['offence-1-plea']
-    var offence_2_plea = req.session.data['offence-2-plea']
+//    var offence_1_plea = req.session.data['offence-1-plea']
+//    var offence_2_plea = req.session.data['offence-2-plea']
     var offence_3_plea = req.session.data['offence-3-plea']
     
     // RESET GUILTY COME TO COURT
     //req.session.data['guilty-come-to-court'] = ""
         
-    if ((offence_1_plea == "Not guilty") || (offence_2_plea == "Not guilty") || (offence_3_plea == "Not guilty")) {
+ //   if ((offence_1_plea == "Not guilty") || (offence_2_plea == "Not guilty") || (offence_3_plea == "Not guilty")) {
+    if (offence_3_plea == "Not guilty") {
         res.redirect('/map/not-guilty-plea')
     }
     
-    if ((offence_1_plea == "Guilty") && (offence_2_plea == "Guilty") && (offence_3_plea == "Guilty")) {
+//    if ((offence_1_plea == "Guilty") && (offence_2_plea == "Guilty") && (offence_3_plea == "Guilty")) {
+    if (offence_3_plea == "Guilty") {
         res.redirect('/map/guilty-plea')
     }
     
@@ -211,11 +213,12 @@ router.post('/map/your-plea', function (req, res) {
 /* NOT GUILTY PLEA */
 router.post('/map/not-guilty-plea', function (req, res) {
     
-    var offence_1_plea = req.session.data['offence-1-plea']
-    var offence_2_plea = req.session.data['offence-2-plea']
+//    var offence_1_plea = req.session.data['offence-1-plea']
+//    var offence_2_plea = req.session.data['offence-2-plea']
     var offence_3_plea = req.session.data['offence-3-plea']
         
-    if ((offence_1_plea == "Guilty") || (offence_2_plea == "Guilty") || (offence_3_plea == "Guilty")) {
+//    if ((offence_1_plea == "Guilty") || (offence_2_plea == "Guilty") || (offence_3_plea == "Guilty")) {
+    if (offence_3_plea == "Guilty") {
         req.session.data['guilty-come-to-court'] = "Yes"
         res.redirect('/map/guilty-plea-mitigation')
     }     
