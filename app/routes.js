@@ -427,7 +427,7 @@ router.post('/map/your-outgoings', function (req, res) {
     } else if (give_details_of_monthly_bills == "No") {
         req.session.data['i-made-it-to-check-your-answers'] = "Yes"
 /* redirect to PCQs res.redirect('/map/cya') */
-    res.redirect('https://hmcts-pcq-sjs-prototype.herokuapp.com/introduction')
+    res.redirect('https://hmcts-pcq-sjs-prototype.herokuapp.com/introduction?userType=defendant')
             res.redirect('/map/cya')
     }
         
@@ -463,7 +463,7 @@ router.post('/map/your-monthly-outgoings', function (req, res) {
     req.session.data['i-made-it-to-check-your-answers'] = "Yes"
    
 /* redirect to PCQs res.redirect('/map/cya') */
-    res.redirect('https://hmcts-pcq-sjs-prototype.herokuapp.com/introduction')        
+    res.redirect('https://hmcts-pcq-sjs-prototype.herokuapp.com/introduction?userType=defendant')        
 });
 
 /* ****************** */
